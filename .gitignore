@@ -1,0 +1,22 @@
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.xdv
+*.synctex.gz
+
+# Local build/output folders
+build/
+out/
+archive/old_build_outputs/
+
+# Editor/system noise
+.DS_Store
+Thumbs.db

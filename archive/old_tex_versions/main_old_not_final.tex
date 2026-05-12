@@ -1,0 +1,1886 @@
+\documentclass[a4paper,openay,14pt]{ctexbook}
+\raggedbottom
+%\documentclass{SoochowDoctor}{ctexbook}
+%\usepackage{ctex}
+\usepackage{subcaption}
+\usepackage{ulem}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{graphicx,  psfrag,  epsf}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{pdflscape}
+\usepackage{url}
+\RequirePackage[OT1]{fontenc}
+\RequirePackage{amsthm}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{bm}
+%\usepackage{subfigure}
+\usepackage{epstopdf}
+\DeclareGraphicsExtensions{.eps}
+\usepackage{float}
+\usepackage{amsfonts,  latexsym}
+\usepackage{multirow}
+\usepackage{bbm}
+\usepackage[margin=1.3 in]{geometry}
+\usepackage{titlesec}
+\usepackage{framed}
+\usepackage{setspace}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{xeCJK}
+\usepackage{appendix}
+\usepackage{dcolumn}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{tipa}
+\usepackage{pdfpages}
+\usepackage{amsbsy}
+
+
+\makeatletter
+\setlength{\@fptop}{5pt}
+\makeatother
+%\usepackage{natbib}
+\newcommand{\blind}{0}
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.5in}%
+\addtolength{\textwidth}{0.5in}
+\addtolength{\textheight}{0.5in}
+\addtolength{\topmargin}{-0.5in}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lem}{引理}
+\newtheorem{deff}{Definition}
+\newtheorem{thm}{定理}[section]
+\newtheorem{Example}{Example}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{nott}{Notation}
+\newtheorem{remark}{Remark}
+\newcommand{\bee} {\begin{equation}}
+\newcommand{\ene}{\end{equation}}
+\newcommand{\nn} {\nonumber}
+\numberwithin{equation}{section}
+\numberwithin{lem}{section}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argsup}{argsup}
+\DeclareGraphicsExtensions{.pdf,  .png,  .jpg}
+\def\qed{{\hfill $\Box$\medskip}}
+\def\E{{\mathrm E}}
+\def\var{{\mathrm Var}}
+\def\cov{{\mathrm Cov}}
+\def\N{{\rm N}}
+\def\d{{\mathrm d}}
+\def\Ave{{\rm Ave}}
+\def\Std{{\rm Std}}
+\def \logit{{\mathrm logit}}
+\def \argmin{{\mathrm argmin}}
+\def \Sign{{\mathrm Sign}}
+\def \Card{{\mathrm Card}}
+\def \rank{\mathrm rank}
+\def \ve {\varepsilon}
+\def \sigzs {\sigma_{0}^{2}}
+\def \sigs {\sigma^2}
+\def \sigshat{\hat{\sigma}^2}
+\def \unli {\underline}
+\def \cude {\boldsymbol}
+\def \Db{\cude{\mathbb{D}}}
+\def\mulcol{\multicolumn}
+\def\colred{\textcolor{red}}
+\def\colblu{\textcolor{blue}}
+\def\colblk{\textcolor{black}}
+\makeatletter
+\@addtoreset{equation}{section}
+\newcommand\figcaption{\def\@captype{figure}\caption}
+\newcommand\tabcaption{\def\@captype{table}\caption}
+\makeatother
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\usepackage{verbatim}
+\usepackage{fancyhdr,  color,  graphicx,  amsfonts,  amssymb,  latexsym,  bm}
+\usepackage{epstopdf}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{pro}[theorem]{命题}
+\newtheorem{theo}[theorem]{定理}
+\newtheorem{lemma}[theorem]{引理}%[section]
+\newtheorem{coro}[theorem]{推论}%[section]
+\newtheorem{example}[theorem]{例}%[section]
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{definition}[theorem]{定义}%[section]
+\newtheorem{rema}[theorem]{注}%[section]
+\newtheorem{note}[theorem]{Note}
+\newtheorem{theorems}{Theorem}[subsection]
+\CTEXsetup[name={第,  章}]{chapter}
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+\allowdisplaybreaks
+\setlength{\textwidth}{155mm}%页面宽度
+\setlength{\textheight}{230mm}%页面长度
+%学位论文均采用双面印制,  奇数页页眉横线左侧为论文题目,  右侧为章节标题；偶数页页眉横线左侧为章节标题,  右侧为论文题目. 
+%页码位于页面下方居中排列. 
+\renewcommand\baselinestretch{1.0}
+%\pagestyle{fancy}\fancyhf{}
+%\fancyhead[EL]{\leftmark}
+%\fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+%\fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+%\fancyhead[OR]{\leftmark}
+%\fancyfoot[C]{\thepage }
+\def\spacingset#1{\renewcommand{\baselinestretch}
+{#1}\small\normalsize} 
+\hypersetup{colorlinks=true,  linkcolor=black}
+\newcommand{\chapterwithfancyheader}[1]{  
+    \chapter{#1} % 使用\chapter命令创建章节  
+    %\thispagestyle{plain} % 章节标题页使用plain样式（或者你可以自定义）  
+    \thispagestyle{fancy} % 设置接下来的页面为fancy样式  
+    % 在这里可以添加一些内容，确保页眉正确显示  
+}  
+\begin{document}
+
+\zihao{-4}
+\baselineskip=30pt
+\input{fengmian}
+%\includepdfmerge{学位论文独创性声明及使用授权声明-1.pdf}
+
+\includepdfmerge{双盲审说明.pdf}
+%\newpage
+%\includepdfmerge{mangshen.pdf}
+%\includepdfmerge{封面.pdf}
+\include{abstract}
+\pagenumbering{gobble}
+% 目录
+\clearpage % 开始新的一页  
+\tableofcontents
+\thispagestyle{empty}
+% 表格目录
+\listoftables
+\let\cleardoublepage\clearpage
+% 插图目录
+\listoffigures
+
+\mainmatter
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[EL]{\leftmark}
+\fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{\leftmark}
+\fancyfoot[C]{\thepage }
+
+\chapterwithfancyheader{引言}
+\section{研究背景及现状}
+
+空间序列分析在环境科学, 地质科学和生物科学等多个领域中有着广泛的应用, 并受到越来越多的关注. 
+空间数据的一个关键特征是空间依赖性, 这种依赖性通常被建模为空间距离函数, 
+无论是地理距离还是经济距离, 其结构都类似于时间序列中的依赖结构; 
+参见文献 \cite{whittle1954stationary}, \cite{anselin1980estimation}, 
+\cite{yao2006gaussian}, \cite{robinson2011asymptotic} 和 \cite{cressie2015statistics}.
+
+误差分布函数在统计推断、预测及实际应用中具有关键作用. 例如, 已知误差分布可以用于构造预测区间以及实施拟合优度检验.在一维情形下,关于误差分布的统计推断已被广泛研究, 相关方法参见文献
+\cite{akritas2001non},\cite{cheng2002consistency}, \cite{cheng2005asymptotic}, \cite{muller2007estimating}, \cite{chan2008residual}, \cite{kiwitt2012estimating}, \cite{gu2021smooth}和\cite{zhong2025inference}.
+然而, 在现有文献中, 仍缺乏对于模型 \eqref{model:nonparbiregression} 中具有非线性趋势函数 \( g(\cdot) \) 的非平稳空间过程的残差经验分布函数的系统研究. 此外, 在混合依赖条件下、且定义在不规则空间区域上的空间序列情形中开展误差分布推断, 还面临额外的理论挑战, 例如复杂空间依赖结构的刻画以及区域边界几何形状的影响等.
+
+在空间或时空数据分析中, 非平稳性的建模至关重要. 例如, 文献\cite{robinson2011asymptotic} 在弱空间依赖条件下建立了核估计的非参数回归渐近理论. 然而,传统用于估计趋势函数 \( g(\cdot) \) 的光滑方法, 如核光滑、小波方法、张量积样条以及薄板样条, 在不规则区域上往往表现不佳, 主要原因在于边界``泄漏" 效应以及对复杂区域形状的不敏感性.
+
+为克服复杂区域边界下光滑估计的困难,本文采用基于三角剖分的二元样条(bivariate splines on triangulations, BST)方法来刻画空间非平稳关系,同时保持区域形状与函数光滑性的良好特征. 二元样条是在二维三角剖分多边形区域上定义的分段多项式光滑函数;参见文献\cite{lai2013bivariate}. 该方法已在多个领域中得到成功应用, 如文献\cite{guillas2010bivariate} 将其用于空间函数回归模型中随机曲面的估计, 文献\cite{yu2021multivariate} 研究了图像标量回归模型中的方差函数估计与同时置信带, 文献\cite{hu2024statistical} 提出了图像数据函数特征系统的同步推断方法, 文献\cite{zhang2025oracally} 研究了带二元趋势的空间 ARMA 过程的估计与模型选择问题.
+
+本文考虑构造非平稳空间序列边际误差分布的同时置信带. 众所周知,  同时置信带是对未知函数进行整体推断的重要工具, 并在多个统计研究领域中受到广泛关注; 例如
+文献\cite{wang2013smooth}, \cite{gu2014simultaneous}, \cite{wang2014oracally}, \cite{cao2016oracle}, \cite{zhang2018smooth}, \cite{wang2022oracle}.
+在误差分布推断的背景下, 同时置信带可用于量化估计不确定性并实现有效推断. 如文献\cite{gu2021smooth} 在非参数回归中提出了光滑同时置信带; 文献\cite{wang2014oracally} 针对自回归误差提出了默示有效估计量并构造了基于柯尔莫格洛夫分布的 SCB; 文献\cite{wang2022oracle} 则基于核分布函数估计量(kernel density estimation, KDE)建立了适用于独立同分布误差的柯尔莫格洛夫-斯米尔诺夫型同时置信带. 尽管一维时间序列误差分布的推断已有较多研究, 但在空间序列情形下, 尤其是在复杂不规则区域上的相关研究仍较为匮乏. 本文针对这一问题, 在不规则空间区域上构建了边际误差分布函数的光滑同时置信带, 同时推导得出估计的边际累积分布函数与真实累积分布函数之间最大偏差的渐近分布, 并据此构造光滑同时置信带, 为非平稳空间过程提供了一种严格且具有实践价值的推断工具.
+
+
+\section{研究内容与创新}
+\subsection{研究内容}
+本文研究非平稳空间序列中边际误差分布的统计推断问题,  并基于二元样条趋势估计与核分布估计构建光滑同步置信带.本文共分为六章, 具体安排如下：
+
+第一章为绪论部分,  主要介绍本文的研究背景与现状,  阐述本文的主要研究内容和创新之处. 
+
+第二章为基础知识介绍,  首先介绍本文的数学符号和基础知识, 包括相依集中不等式及常见的非参数估计方法. 同时也介绍如何划分数据集, 为构造同时置信带做准备. 
+
+第三章为本文的核心部分,   建立非平稳空间序列边际误差分布函数的理论结果和渐近性质.
+
+第四章为理论结果, 本章给出核分布函数估计量并构造同时置信带. 
+
+第五章为数值模拟和实证分析, 本章通过数值模拟检验所提出同时置信带的有限样本表现, 并进行全球CO$_2$浓度和黑海表面温度的实证分析. 通过对误差分布非正态性的稳健识别, 为空间监测数据的模型诊断与不确定性量化提供了高精度的统计工具, 具有重要的实际应用价值. 
+
+第六章为总结展望. 本章总结了本文的研究内容,  并展望未来的研究方向. 
+
+\subsection{创新点}
+本文的创新点主要归纳如下：
+
+(1) 对于非平稳空间序列, 本文证明了基于残差得到的光滑估计量$\hat{F}_{n',h}(\cdot)$渐近等价于基于误差得到的不可行估计量$\tilde{F}_{n',h}(\cdot)$.
+
+(2) 基于光滑估计量$\hat{F}_{n',h}(\cdot)$的默示有效性, 本文构造了累积分布函数$F(z)$的同时置信带.
+
+(3) 在实证应用层面, 突破传统非平稳空间序列中误差项独立同分布的假设局限. 将非平稳空间序列的误差分布推断引入气象学与环境科学领域如全球CO$_2$浓度监测、黑海表面温度分析等.
+
+\chapterwithfancyheader{基础知识介绍}\label{SEC: Preliminary}
+
+\section{数学符号}
+设 \(\mathcal{I}_n = \{\mathbf{i}_1, \ldots, \mathbf{i}_n\}\) 为定义在有界区域 \(\Omega \subset \mathbb{R}^2\) 上的一组空间索引. 空间随机序列 $\{Z_{\mathbf{i}}\}_{\mathbf{i} \in \mathcal{I}_n}$ 并非相互独立，而是在某种混合条件下表现出短程依赖性. 为了便于应用 Donsker 定理并为 $F(z)$ 构建有效的柯尔莫格洛夫-斯米尔诺夫型同时置信带, 将原始指标集 $\mathcal{I}_n$ 划分为两个互不相交的子集:
+\[
+\mathcal{I}_{n'} = \left\{ \mathbf{i}_{T_n}, \mathbf{i}_{2T_n}, \ldots, \mathbf{i}_{n' T_n} \right\}, 
+\quad 
+\mathcal{I}_{n''} = \mathcal{I}_n \setminus \mathcal{I}_{n'},
+\]
+其中 $T_n$ 是正整数列, 满足 $T_n \sim n^{\theta}, \theta \in (0,1)$, 且 $n' = \lfloor n / T_n \rfloor$ 表示不超过 $n/T_n$ 的最大整数, $n'' = n - n'$. 子样本指标集 $\mathcal{I}_{n'}$ 中的空间位置是等距选取的, 即任意两个相邻点之间的欧氏距离满足
+\[
+T_n = ||\mathbf{i}_{(k+1)T_n} - \mathbf{i}_{kT_n}||, \quad k = 1,2,\dots,n'-1,
+\]
+其中 $||\cdot||$ 表示 $\mathbb{R}^2$ 中的标准欧氏范数.
+
+上述划分方式确保 $\mathcal{I}_{n'}$ 内任意两个观测点之间的空间距离足够大, 从而有效削弱其依赖结构. 当混合系数以适当速度衰减至零时, 例如指数衰减, 任意相距不少于距离 $T_n$ 的观测点之间的依赖性在渐近意义下可以忽略. 因此, 子集 $\mathcal{I}_{n'}$ 中的观测可以近似视为相互独立, 进而可以构造满足 Donsker 定理弱收敛条件的经验过程.
+
+本文使用 $c_1, c_2, C, C_\rho, C_d$ 等表示通用正常数, 其具体取值在不同场合下可有所不同.
+符号 $\mathcal{O}_p$ (或 $\scriptstyle{\mathcal{O}}_p$) 表示依概率具有相应阶数的随机变量序列,  $\mathcal{O}_{a.s.}$ (或 $\scriptstyle{\mathcal{O}}_{a.s.}$) 表示几乎处处成立的渐近阶.
+符号$\ll$ 表示量级关系, 与 $\mathcal{O}$ 的阶关系等价, 使用 $U$ (或 $u$) 表示在指定定义域上一致成立的 $\mathcal{O}$ 阶.
+
+对任意向量 $\mathbf{a} = \left(a_1, \ldots, a_n\right)^T$, 定义其$\ell_r$ 范数
+$$||\mathbf{a}||_r = \left( |a_1|^r + \cdots + |a_n|^r \right)^{1/r},\ 1 \leq r < \infty,$$
+无穷范数 (或上确界范数) 为
+\(
+||\mathbf{a}||_{\infty} = \max \left( |a_1|, \ldots, |a_n| \right).
+\)
+对 $n \times n$ 矩阵 $\mathbf{A}$, 其上确界范数定义为
+\(||\mathbf{A}||_{\infty} = \sup_{||\mathbf{a}||_{\infty} = 1} ||\mathbf{A}\mathbf{a}||_{\infty}.\)
+
+对于任何定义在域 $\Omega$ 的闭包上的$L^2$ 可积函数 $g_1(\boldsymbol{x})$ 和 $g_2(\boldsymbol{x})$, 定义函数的理论内积与范数分别为
+\(\left<g_1,g_2\right> = \int_{\Omega}g_1(\boldsymbol{x})g_2(\boldsymbol{x})d\boldsymbol{x},~\left\Vert g\right\Vert^2_2 = \left<g,g\right>\). 同时, 定义经验内积与范数如下：
+\begin{align*}
+ &\left<g_1,g_2\right>_{n} = n^{-1}\sum_{\mathbf{i} \in \mathcal{I}_n} g_1(\boldsymbol{X}_{\mathbf{i}})g_2(\boldsymbol{X}_{\mathbf{i}}),\\
+ & \left<g_1,g_2\right>_{n''} = n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}g_1(\boldsymbol{X}_{\mathbf{i}''})g_2(\boldsymbol{X}_{\mathbf{i}''}),\\
+ & \left\Vert g\right\Vert^{2}_{2,n} = \left<g,g\right>_{n}\text{ 以及 } \left\Vert g\right\Vert^{2}_{2,n''} = \left<g,g\right>_{n''}.
+\end{align*}
+
+定义以下三个对称正定矩阵：
+\begin{align}
+    &\bm{\Gamma} = \left[\left\langle B_l,B_{l'}\right\rangle\right]_{l,l'\in\mathcal{L}}, \label{EQU:Gammalambda}\\
+    &\hat{\bm{\Gamma}}_{n} = \left[\left\langle B_l,B_{l'}\right\rangle_{n}\right]_{l,l'\in\mathcal{L}},\label{EQU:hatGammalambdan}\\
+    &\hat{\bm{\Gamma}}_{n''} = \left[\left\langle B_l,B_{l'}\right\rangle_{n''}\right]_{l,l'\in\mathcal{L}}. \label{EQU:hatGammalambdan''}
+\end{align}
+
+
+\section{相依集中不等式}
+在经典概率论与数理统计中, 独立随机变量序列构成了最基本的理论框架. 然而, 在经济学、金融学、生物统计学、信号处理等诸多应用领域, 观测数据之间往往呈现出复杂的相依结构, 独立性假设在此类情境下难以成立. 相依集中不等式(dependence concentration inequalities）正是为处理这类相依数据而发展的一套重要理论工具，它主要研究相依随机变量之和与其期望之间的偏离程度，为非参数估计、机器学习算法性能分析等提供理论基础.
+
+相依性是描述随机变量间偏离独立性的关键. 常用的混合系数包括强混和系数($\alpha$-mixing coefficient/strong mixing coefficient) 和绝对正则($\beta$-mixing). 强混和通过$\sigma$-代数之间的相关性来衡量相依性. 本文主要使用强混和系数来衡量相依性.
+
+设 $\{X(\mathbf{s})\}$ 是一个实值空间过程, 其索引为 $\mathbf{s} \equiv (i, j) \in \mathbb{Z}^2$, 其中 $\mathbb{Z}$ 表示所有整数. 由于索引 $\mathbf{s}$ 是二维的, $\{X(\mathbf{s})\}$ 也被称为随机场. 对于任意 $A \subset \mathbb{Z}^2$, 记 $\mathcal{F}(A)$ 为由 $\{X(\mathbf{s}), \mathbf{s} \in A\}$ 生成的 $\sigma$-代数. 我们用 $|A|$ 表示集合 $A$ 中元素的个数.
+
+对于任意 $A, B \subset \mathbb{Z}^2$, 定义
+\[
+\alpha(A, B) = \sup_{U \in \mathcal{F}(A), V \in \mathcal{F}(B)} \big|P(UV) - P(U)P(V)\big|,
+\]
+以及
+\[
+d(A, B) = \min \{||\mathbf{s}_1 - \mathbf{s}_2|| \mid \mathbf{s}_1 \in A, \mathbf{s}_2 \in B\}.
+\]
+其中 $||\cdot||$ 表示欧几里得范数. 定义过程 $\{X(\mathbf{s})\}$ 的强混合系数为:
+\[
+\alpha(k; i, j) = \sup_{A,B \subset \mathbb{Z}^2} \{  \alpha(A, B)| \; |A| \leq i, |B| \leq j, d(A,B) \geq k\}, 
+\]
+其中 $i, j, k$ 为正整数, 且 $i, j$ 可以取无穷大. 若当 $k \to \infty$ 时 $\alpha(k; i, j) \to 0$, 则称过程 $\{X(\mathbf{s})\}$ 为 $\alpha$-混合过程. 一个典型的选择是 $i = j = \infty$. 注意到 $\alpha(k; i, j)$ 关于 $k$ 单调不增. 因此，若 $\alpha(k; \infty, \infty) \to 0$，则对任意 $i$ 和 $j$ 都有 $\alpha(k; i, j) \to 0$.
+
+
+\begin{lemma}[Davydov's不等式, \cite{fazekas2003limit}]
+如果 $X$ 在$\mathcal{F}(X)$中可测, $Y$ 在 $\mathcal{F}(Y)$ 中可测, 则
+\[
+| \mathrm{Cov} (X, Y)| \leq 4\alpha(X, Y)||X||_{\infty}||Y||_{\infty}.
+\]
+\end{lemma}
+
+伯恩斯坦不等式刻画了随机变量序列和的尾部概率性质, 在本文的证明中发挥了重要作用. 通过块分解技术, 将空间随机场划分为近似独立的块, 从而将弱相关问题转化为近似独立情形, 并结合 Davydov 不等式控制块间协方差.
+
+% \begin{lemma}[{强混和Bernstein不等式, \cite{bosq2012nonparametric}}]
+% 设 $\{X_i\}$ 为一均值为 0 的随机序列，$|X_i| \le R$.a.s, 假设强混和系数系数呈指数衰减为
+% $\alpha(k) \le C_0 e^{-k^\theta}$.
+
+% 令 $S_n = \sum_{i=1}^n X_i$，若存在一个常数方差 $\sigma^2 = \lim_{n\to\infty}\mathrm{Var}(S_n)/n < \infty$. 则存在常数
+% $C_1, C_2 > 0$(依赖 $R, C_0, \theta$), 使得对于任意 $t>0$：
+% \[
+% \mathrm{P}(S_n \ge t) \le \exp\left( - \frac{t^2}{C_1 n + C_2 R t} \right).
+% \]
+
+% \end{lemma}
+
+% \begin{rema}
+%     常数 $C_1$ 通常对应 $2\sigma^2$，$C_2$ 通常对应 $2/3$.
+% \end{rema}
+
+定义一个连续指标的辅助随机场 $(Z_{\mathbf{i}}, \mathbf{i}\in\mathbb{R}^2)$. 基于观测 ${Z_{\mathbf{i}}, \mathbf{i}\in\mathcal{I}_n}$, 由 $\mathcal{I}_n$ 所索引的采样区域 $\Omega$ 为一个矩形, 该矩形由所有满足 $\mathbf{i}=(i_1,i_2)\in\mathbb{Z}^2$ 且 $1\le i_k\le n_k, k=1,2$ 的点组成. 空间序列的样本量记为 $n$, 即集合 $\mathcal{I}_n$ 的基数 $|\mathcal{I}_n|=n_1 n_2$.
+
+对于介于 $1$ 与 $n_1\wedge n_2\equiv \min\{n_1,n_2\}$ 之间的整数 $q$, 定义 $p_k=n_k/(2q), k=1,2$. 对于 $i_1,i_2=1,\ldots,q$, 定义
+$$
+\begin{aligned}
+V_{i_1 i_2}^{(1)} & =\int_{2(i_1-1) p_1}^{(2 i_1-1) p_1} d x_1 \int_{2(i_2-1) p_2}^{(2 i_2-1) p_2} Z_\mathbf{i} d x_2, \\
+V_{i_1 i_2}^{(2)} & =\int_{2(i_1-1) p_1}^{(2 i_1-1) p_1} d x_1 \int_{(2 i_2-1) p_2}^{2 i_2 p_2} Z_\mathbf{i} d x_2, \\
+V_{i_1 i_2}^{(3)} & =\int_{(2 i_1-1) p_1}^{2 i_1 p_1} d x_1 \int_{2(i_2-1) p_2}^{(2 i_2-1) p_2} Z_\mathbf{i} d x_2, \\
+V_{i_1 i_2}^{(4)} & =\int_{(2 i_1-1) p_1}^{2 i_1 p_1} d x_1 \int_{(2 i_2-1) p_2}^{2 i_2 p_2} Z_\mathbf{i} d x_2 .
+\end{aligned}
+$$
+显然有
+$$
+S_n=\sum_{i_1, i_2=1}^q\left(V_{i_1 i_2}^{(1)}+V_{i_1 i_2}^{(2)}+V_{i_1 i_2}^{(3)}+V_{i_1 i_2}^{(4)}\right),
+$$
+对任意常数 $\varepsilon>0$ 与 $K>0$, 定义
+$$
+s(q)^2=\frac{32 q^4}{n^2} \max _{\substack{1 \leq i_1, i_2 \leq q \\ 1 \leq l \leq 4}} E\left(V_{i_1 i_2}^{(l)}\right)^2+\frac{K \varepsilon}{2}.
+$$
+下面的引理 \ref{Lemma:Bernstein} 给出了随机序列部分和尾概率的上界, 其形式类似于弱相关单变量时间序列的指数不等式, 参见文献\cite{bosq2012nonparametric} 中的定理 1.3.
+
+\begin{lemma}[Bernstein不等式, \cite{yao2003exponential}]\label{Lemma:Bernstein}
+设 ${Z_{\mathbf{i}}}$ 为零均值空间过程, 且满足$\mathrm{P}\left\{\sup_{\mathbf{i}\in\mathbb{Z}^2}\left\vert Z_{\mathbf{i}}\right\vert<K\right\} = 1$. 定义部分和 $S_n=\sum_{\mathbf{i}\in\mathcal{I}n} Z_{\mathbf{i}}$. 则对任意满足 $1\le q\le n_1\wedge n_2$ 的整数 $q$ 与任意 $\varepsilon>0$, 有
+\begin{align*}
+    \mathrm{P}\left(\left|S_n\right|>n \varepsilon\right) \leq
+    &8\exp \left(-\frac{\varepsilon^2 q^2}{8 s(q)^2}\right)\notag\\
+    &+ 44\left(1+\frac{4 K}{\varepsilon}\right)^{1 / 2} q^2 \alpha\left(\left[\frac{n_1}{2 q}\right] \bigwedge\left[\frac{n_2}{2 q}\right] ;\left[\frac{n}{4 q^2}\right], n\right).
+    \end{align*}
+\end{lemma}
+
+\section{二元样条估计方法}\label{BST}
+
+设有界区域 $\Omega$ 被划分为 $N$ 个三角形 $\tau_{1},\ldots,\tau_{N}$.若任意两个不同三角形在 $\triangle=\{\tau_{1},\ldots,\tau_{N}\}$ 中的非空交集仅为公共边或公共顶点, 则称 $\triangle$ 为 $\Omega=\cup_{i=1}^N \tau_i$ 上的一个三角剖分. 对任意 $\tau\in\triangle$，记 $|\tau|$ 为其最长边的长度，$\rho_\tau$ 为其内切圆半径，即完全包含于 $\tau$ 内的最大圆的半径. 定义形状参数 $R_\tau=|\tau|/\rho_\tau$，并定义网格尺度
+\[
+|\triangle|:=\max\{\,|\tau|:\tau\in\triangle\,\}.
+\]
+$R_\tau$ 越小表示三角形 $\tau$ 越接近正三角形. 若一个三角剖分 \(\triangle\) 满足对于所有 \(\tau \in \triangle\), 条件 \(|\triangle|/R_\tau \leq \pi\) 都成立, 那么该三角剖分 \(\triangle\) 被认为是 \(\pi\)-准均匀的，其中 \(\pi\) 为正常数.
+
+对任意三角形 $\tau$ 及整数 $d\ge 1$，记 $\mathbb{P}_d(\tau)$ 为定义在 $\tau$ 上次数不超过 $d$ 的多项式空间.对任意整数 $r\ge 0$，记 $\mathbb{C}^{r}(\Omega)$ 为定义在 $\Omega$ 上且具有至多 $r$ 阶连续偏导数的函数类. 给定三角剖分 $\triangle$, 定义次数为 $d$、光滑阶为 $r$ 的样条空间为
+\begin{equation}\label{DEF:S_rd}
+  \mathbb{S}_{d}^{r}(\triangle)
+  = \bigl\{\xi\in \mathbb{C}^{r}(\Omega): \ \xi|_{\tau}\in \mathbb{P}_d(\tau)\ \text{对所有 } \tau\in\triangle \bigr\}.
+\end{equation}
+
+记 $\mathbf{B}^\top(\boldsymbol{\cdot})=\left(B_{l}(\boldsymbol{\cdot}),\,l\in\mathcal{L}\right)$ 为 $\mathbb{S}_{d}^{r}(\triangle)$ 的二元Bernstein基函数向量, 其中 $\mathcal{L}$ 为Bernstein基函数指标集合, 基函数个数为
+$|\mathcal{L}|=N(d+1)(d+2)/2$.
+具体而言, 设 $\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3$ 为 $\tau\in\triangle$ 的三个顶点，$(b_1,b_2,b_3)$ 为点 $\boldsymbol{x}$ 相对于 $\tau$ 的重心坐标, 则次数 $d\ge 1$ 的Bernstein基多项式定义为
+\[
+B^{\tau,d}_{ijk}(\boldsymbol{x})
+=\frac{d!}{i!\,j!\,k!}\,b_1^{\,i} b_2^{\,j} b_3^{\,k},
+\quad i+j+k=d,
+\]
+参见文献\cite{lai2007spline}. 
+
+
+\chapterwithfancyheader{模型估计与渐近性质}\label{SEC: result}
+\section{模型介绍与理论假设}
+对任意 \(\mathbf{i} = (i_1, i_2) \in \mathcal{I}_n\), 将其对应的空间位置记为 \(\boldsymbol{x}_{\mathbf{i}} = (x_{i1}, x_{i2}) \in \Omega\). 本文考虑如下空间序列模型
+\begin{equation}\label{model:nonparbiregression}
+   Y_{\mathbf{i}} = g(\boldsymbol{x}_{\mathbf{i}}) + Z_{\mathbf{i}}, 
+   \quad \mathbf{i} \in \mathcal{I}_n,
+\end{equation}
+其中 \( g(\cdot): \mathbb{R}^2 \to \mathbb{R} \) 为未知的确定性趋势函数，而误差项
+\(\{Z_{\mathbf{i}}, \mathbf{i} \in \mathbb{Z}^2\}\) 是一个严格平稳、均值为零的空间随机过程. 误差的边际分布由概率密度函数 \( f(z) \) 及其累积分布函数(cumulative distribution function, CDF)
+\(F(z) = \int_{-\infty}^{z} f(u)\,\mathrm{d}u\)刻画，并假定该边际分布在所有空间位置上是相同的.
+
+为构建基于核密度估计方法所需的理论基础, 设定如下正则条件. 这些假设涵盖了分布函数与趋势函数的光滑性、核函数的性质、空间误差过程的混合性、采样设计以及带宽选取等方面.
+
+\begin{itemize}
+\item[(A1)] 累积分布函数 $F(\cdot) \in \mathcal{C}^{(1,1)}(\mathbb{R})$, 其密度函数 $f(\cdot)$ 满足 \( || f ||_{\infty} \leq C_f \), 其中常数 \( C_f > 0 \).
+
+\item[(A2)] 非平稳空间趋势函数 $g(\cdot) \in \mathcal{W}^{\ell+1, \infty}(\Omega)$, 其中 $\ell \geq 1$ 为整数.
+
+\item[(A3)] 空间误差过程 $\{ Z_{\mathbf{i}} \}_{\mathbf{i} \in \mathcal{I}_n}$ 是严格平稳且满足 $\alpha$-混合条件, 并具有有限矩
+\[
+M_{2+\delta} = \mathrm{E}|Z|^{2+\delta} < \infty,
+\]
+其中 $\delta > 0$. 此外, 存在常数 $C_\rho > 0$ 和 $\rho \in (0,1)$, 使得
+\[
+\alpha(k; i, j) \leq C_\rho\, i\, \rho^k, \quad \text{对于所有 } i, j, k \geq 1,
+\]
+其中 $\alpha(k; i, j)$ 表示强混合系数, 且常数 $C_\rho$ 与 $\rho$ 与 $i, j, k$ 无关.
+
+\item[(A4)] 剖分 $\triangle$ 是 $\pi$-准均匀的. 三角形数量满足 $N = |\triangle|^{-2} = C n^\theta$, 其中常数 $C > 0$, $\theta \in [1/(\ell+2),\,1)$. 相邻采样点之间的间距满足
+\[
+T_n \sim |\triangle|^{-2} (\log n)^a, a > 0.\]
+
+\item[(A5)] 核函数 $K \in \mathcal{C}^{(2,1)}(\mathbb{R})$ 是对称的概率密度函数, 其导函数 $K'$ 与 $K''$ 的支撑均为紧集, 且位于区间 $[-1,1]$ 内.
+
+\item[(A6)] 带宽满足 $h = h_n = n'^{-t} c_n$, 其中 $c_n + c_n^{-1} = {\scriptstyle{\mathcal{O}}}(\log^\tau n)$ (对任意 $\tau > 0$), 且 $t \in [1/4, 1/3]$. 此外, 当 $t = 1/4$ 时有 $c_n \to 0$ (当 $n \to \infty$).
+\end{itemize}
+
+\section{趋势函数的二元样条估计}
+
+空间趋势函数 $g(\boldsymbol{x})$ 可近似表示为如下基函数展开形式：
+\[
+  g(\boldsymbol{x})
+   \approx \sum_{l\in\mathcal{L}} B_l(\boldsymbol{x})\,\gamma_l
+  = \mathbf{B}^\top(\boldsymbol{x})\,\boldsymbol{\gamma},
+\]
+其中 $\boldsymbol{\gamma}^\top=(\gamma_l,\,l\in\mathcal{L})$ 为样条系数向量.
+
+给定空间过程 $\{Y_{\mathbf{i}}\}$ 的观测值
+$\mathbf{Y}=(Y_{\mathbf{i}''},\,\mathbf{i}''\in\mathcal{I}_{n''})^\top$，
+考虑如下最小二乘估计量：
+\begin{equation}\label{EQ:BSTLS}
+  \hat{g}(\cdot)
+  = \underset{s(\cdot)\in \mathbb{S}_{d}^{r}(\triangle)}{\mathrm{argmin}}
+    \sum_{\mathbf{i}''\in\mathcal{I}_{n''}}
+    \bigl\{Y_{\mathbf{i}''}-s(\boldsymbol{x}_{\mathbf{i}''})\bigr\}^2.
+\end{equation}
+
+由此定义算子 $P:R(\Omega)\to\mathbb{S}_{d}^{r}(\triangle)$，使得 $PY=\hat{g}$. 该算子是线性的，但一般并非正交投影算子.
+
+为保证相邻三角形之间的光滑拼接，在样条系数 $\boldsymbol{\gamma}$ 上引入约束矩阵 $\mathbf{H}$：
+\[
+\mathbf{H}\boldsymbol{\gamma}=0,
+\]
+其中, $\mathbf{H}$ 由光滑阶 $r$ 及三角剖分结构决定, 参见文献 \cite{yu2019estimation}. 于是, 问题 \eqref{EQ:BSTLS} 等价于如下约束最小二乘问题：
+\begin{align}\label{EQ:RBSTLS}
+   \underset{\boldsymbol{\gamma}}{\mathrm{argmin}}
+   \sum_{\mathbf{i}''\in \mathcal{I}_{n''}}
+   \Bigl\{Y_{\mathbf{i}''}
+   -\mathbf{B}^{\top}(\boldsymbol{x}_{\mathbf{i}''})\boldsymbol{\gamma}
+   \Bigr\}^2
+   \quad\text{约束条件为 } \mathbf{H}\boldsymbol{\gamma}=0.
+\end{align}
+
+通过对 $\mathbf{H}^\top$ 进行 QR 分解可求解上述约束问题.具体地，设
+\[
+\mathbf{H}^\top
+= \mathbf{Q}\mathbf{R}
+= \begin{pmatrix}\mathbf{Q}_1 & \mathbf{Q}_2\end{pmatrix}
+  \begin{pmatrix}\mathbf{R}_1\\ \mathbf{0}\end{pmatrix},
+\]
+其中 $\mathbf{Q}$ 为正交矩阵, $\mathbf{R}_1$ 为上三角矩阵, $\mathbf{Q}_1$ 表示 $\mathbf{Q}$ 的前 $r$ 列, $r = \mathrm{rank}(\mathbf{H})$, 矩阵 $\mathbf{Q}_2$ 构成 $\mathbf{H}$ 零空间的一组正交基, 其显式构造方法详见文献 \cite{yu2019estimation}.
+通过参数变换 $\boldsymbol{\gamma} = \mathbf{Q}_2 \boldsymbol{\theta}$, 能够确保约束条件 $\mathbf{H}\boldsymbol{\gamma} = \mathbf{0}$ 恒成立. 
+根据文献 \cite{wang2020efficient} 中的引理 1, 原始约束问题 \eqref{EQ:RBSTLS} 可等价转化为如下无约束最小二乘问题:
+\begin{align}\label{EQ:RRBSTLS}
+    \underset{\boldsymbol{\theta}}{\mathrm{argmin}}\sum_{\mathbf{i}''\in \mathcal{I}_{n''}}
+   \Bigl\{Y_{\mathbf{i}''}-\mathbf{B}^{\top}(\boldsymbol{x}_{\mathbf{i}''})\mathbf{Q}_2\boldsymbol{\theta}\Bigr\}^2,
+\end{align}
+
+由式\eqref{EQ:RRBSTLS} 可得
+\[
+\hat{\boldsymbol{\theta}}
+= \bigl(\tilde{\mathbf{B}}^\top \tilde{\mathbf{B}}\bigr)^{-1}
+  \tilde{\mathbf{B}}^\top \mathbf{Y},
+\qquad
+\hat{\boldsymbol{\gamma}}
+= \mathbf{Q}_2
+  \bigl(\tilde{\mathbf{B}}^\top \tilde{\mathbf{B}}\bigr)^{-1}
+  \tilde{\mathbf{B}}^\top \mathbf{Y},
+\]
+其中 $\tilde{\mathbf{B}}=\mathbf{B}\mathbf{Q}_2$.
+
+由此得到趋势函数 $g(\boldsymbol{x})$ 的二元样条估计量：
+\begin{align}\label{EQ:BSTghat}
+  \hat{g}(\boldsymbol{x})
+  = \mathbf{B}^\top(\boldsymbol{x})\,\hat{\boldsymbol{\gamma}}
+  = \mathbf{P}(\boldsymbol{x})\,\mathbf{Y},
+\end{align}
+其中
+\[
+\mathbf{P}(\boldsymbol{x})
+= \mathbf{B}^\top(\boldsymbol{x})\,\mathbf{Q}_2\,
+  \bigl(\tilde{\mathbf{B}}^\top \tilde{\mathbf{B}} \bigr)^{-1}
+  \tilde{\mathbf{B}}^\top.
+\]
+
+将式\eqref{EQ:BSTghat} 代入模型 \eqref{model:nonparbiregression}，可得到如下重要分解：
+\begin{align}\label{EQ:ghat}
+  \hat{g}(\boldsymbol{x})
+  = \tilde{g}(\boldsymbol{x}) + \tilde{Z}(\boldsymbol{x}),
+\end{align}
+其中
+\begin{align}\label{gtilde}
+  \tilde{g}(\boldsymbol{x})
+  &= \mathbf{B}^\top(\boldsymbol{x})\,\mathbf{Q}_2\,
+     \bigl(\tilde{\mathbf{B}}^\top \tilde{\mathbf{B}}\bigr)^{-1}
+     \tilde{\mathbf{B}}^\top \mathbf{g},\\[0.4em]
+\label{Ztilde}
+  \tilde{Z}(\boldsymbol{x})
+  &= \mathbf{B}^\top(\boldsymbol{x})\,\mathbf{Q}_2\,
+     \bigl(\tilde{\mathbf{B}}^\top \tilde{\mathbf{B}} \bigr)^{-1}
+     \tilde{\mathbf{B}}^\top \mathbf{Z},
+\end{align}
+其中
+\[
+\mathbf{g}
+=(g(\boldsymbol{x}_{\mathbf{i}''}),\,\mathbf{i}''\in \mathcal{I}_{n''})^{\top},
+\qquad
+\mathbf{Z}
+=(Z_{\mathbf{i}''},\,\mathbf{i}''\in \mathcal{I}_{n''})^{\top}.
+\]
+
+
+
+\section{模型参数估计的收敛阶数}
+
+\begin{coro}\label{colrollary:ftilde}
+假设条件 (A1)及(A3)–(A6) 成立, 则有
+\begin{align*}
+    &\left\Vert \tilde{f} \right\Vert_{\infty} = \mathcal{O}_{a.s.}(1),
+    \\ 
+    &\sup_{z\in\mathbb{R}} n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}} 
+    \left\vert K_h'(z-Z_{\mathbf{i}'}) \right\vert = \mathcal{O}_{a.s.}(1).
+\end{align*}
+\end{coro}
+
+\begin{pro}\label{Prop:diffierence of mean function}
+假设条件 (A1)–(A4) 成立, 当 $n \to \infty$ 时,
+\[
+\left\lVert \tilde{g} - g \right\rVert_{\infty}
+= \sup_{\boldsymbol{x} \in \Omega} \left| \tilde{g}(\boldsymbol{x}) - g(\boldsymbol{x}) \right|
+= \mathcal{O}_{a.s.} \left( |\triangle|^{\ell+1} \right),
+\]
+其中 $\tilde{g}(\boldsymbol{x})$ 定义于式 (\ref{gtilde}).
+\end{pro}
+
+\begin{pro} \label{Prop:order of error Z}
+假设条件 (A1)–(A4) 成立, 当 $n \to \infty$ 时,
+\[
+\left\lVert \tilde{Z} \right\rVert_{\infty}
+= \sup_{\boldsymbol{x} \in \Omega} \left| \tilde{Z}(\boldsymbol{x}) \right|
+= \mathcal{O}_p \left( n''^{-1/2} |\triangle|^{-1} (\log n)^{1/2} \right),
+\]
+其中 $\tilde{Z}(\boldsymbol{x})$ 定义于式 (\ref{Ztilde}).
+\end{pro}
+
+结合以上两个命题\ref{Prop:diffierence of mean function} 与 \ref{Prop:order of error Z}, 以及式 (\ref{EQ:ghat})可推导出以下命题.
+
+\begin{pro} \label{Prop:order of Z-Zhat}
+假设条件 (A1)–(A4) 成立, 当 $n \to \infty$ 时,
+\[
+\max_{\mathbf{i}' \in \mathcal{I}_{n'}}
+\left\lVert Z_{\mathbf{i}'} - \hat{Z}_{\mathbf{i}'} \right\rVert
+\le \left\lVert \hat{g} - g \right\rVert_{\infty}
+= \mathcal{O}_p \left( |\triangle|^{\ell+1}
++ n''^{-1/2} |\triangle|^{-1} (\log n)^{1/2} \right).
+\]
+\end{pro}
+
+
+\section{理论证明}
+本节将提供论文中有关模型参数估计的理论推导,  证明中用到的一些繁杂冗长的基本引理不在此处展示,  详见附录. 
+\subsection{推论\ref{colrollary:ftilde}的证明}
+\begin{proof}
+    定义基于 $\{ Z_{\mathbf{i}'} \}_{\mathbf{i}'\in\mathcal{I}_{n'}}$ 的不可行密度估计量为：
+\begin{align}\label{DEF:ftilde}
+    \tilde{f}(z) = n'^{-1} \sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'}).
+\end{align}
+ 令 $g \equiv K$ 或 $g \equiv |K'|$, 代入附录中引理 \ref{Lemma:g_h} 可得出该推论.
+\end{proof}
+
+\subsection{命题\ref{Prop:diffierence of mean function}的证明}
+\begin{proof}
+    对于任意函数 $\phi \in W^{\ell+1,\infty}(\Omega)$, 定义  
+\begin{align*}
+\tilde{\phi}(\boldsymbol{x}) 
+= \mathbf{B}^{\top}(\boldsymbol{x})
+\mathbf{Q}_2
+\left(\tilde{\mathbf{B}}^{\top}\tilde{\mathbf{B}}\right)^{-1}
+\tilde{\mathbf{B}}^{\top}\phi, 
+\quad 
+\phi = \left\{\phi(x_{\mathbf{i}''})\right\}^{\top}_{\mathbf{i}''\in\mathcal{I}_{n''}}.
+\end{align*}
+
+首先,证明对于任意 $\phi\in W^{\ell+1,\infty}(\Omega)$, 存在常数 $C_d$, 使得
+\begin{align}\label{inequ:tildephi}
+\left\Vert \tilde\phi - \phi\right\Vert_{\infty,\Omega} 
+\leq 
+C_d 
+\vert\phi\vert_{\ell+1,\infty,\Omega}
+\vert \triangle\vert^{\ell+1}.  
+\end{align}
+
+应用引理 \ref{Lemma:Rnn''Gamman''Bnormn''} 与附录中引理\ref{Lemma:phi-g}, 可得
+\begin{align*}
+\tilde{\phi}(\boldsymbol{x}) - \phi(\boldsymbol{x}) 
+=& \tilde{\phi}(\boldsymbol{x}) - g(\boldsymbol{x}) 
++ g(\boldsymbol{x})-\phi(\boldsymbol{x})\\
+=&
+\mathbf{B}^{\top}(\boldsymbol{x})
+\mathbf{Q}_2
+\left(\tilde{\mathbf{B}}^{\top}\tilde{\mathbf{B}}\right)^{-1}
+\tilde{\mathbf{B}}^{\top}
+\left\{\phi(x_{\mathbf{i}''}) - g(x_{\mathbf{i}''})\right\}^{\top}_{\mathbf{i}''\in\mathcal{I}_{n''}} 
+\\
+&+ g(\boldsymbol{x}) - \phi(\boldsymbol{x})\\
+=&
+\mathbf{B}^{\top}(\boldsymbol{x})
+\mathbf{Q}_2
+\hat{\boldsymbol{\Gamma}}^{-1}_{n''}
+\left\{\left\langle B_l,\phi-g\right\rangle_{n''}\right\}_{l\in\mathcal{L}} 
++ g(\boldsymbol{x}) - \phi(\boldsymbol{x}).
+\end{align*}
+
+接下来, 界定残差项 $\left\langle B_l, \phi - g \right\rangle_{n''}$ 的范数,
+\begin{align*}
+    \left\Vert\left\{\left\langle B_l,\phi-g\right\rangle_{n''}\right\}_{l\in\mathcal{L}}\right\Vert_{\infty} = &\max_{l\in\mathcal{L}}\left\vert\left< B_l,\phi-g\right>_{n''}\right\vert\\
+    \leq & \Vert \phi-g\Vert_{\infty}\max_{l\in\mathcal{L}}\left\vert\left<B_l,1\right>_{n''}\right\vert\\
+    \leq & C\vert\triangle\vert^2\Vert \phi-g\Vert_{\infty}.
+\end{align*}
+
+对于任意 $\boldsymbol{x} \in \Omega$, 在函数 $B_1(\boldsymbol{x}), \dots, B_{\vert \mathcal{L} \vert}(\boldsymbol{x})$ 中至多有 $(d+1)(d+2)/2$ 个非零项, 因此
+\begin{align*}
+    \Vert \tilde{\phi} - \phi\Vert_{\infty}
+    \leq& c(d+1)(d+2)C_\ell'\vert\triangle\vert^{-2}C\vert\triangle\vert^{2} \left\Vert\left\{\left\langle B_l,\phi-g\right\rangle_{n''}\right\}_{l\in\mathcal{L}}\right\Vert_{\infty}+ \Vert\phi-g\Vert_{\infty}\\
+    \leq& c(d+1)(d+2)C_\ell'\vert\triangle\vert^{-2}C\vert\triangle\vert^{2}\Vert \phi-g\Vert_{\infty} + \Vert\phi-g\Vert_{\infty}\\
+    \leq& c(d+1)(d+2)M_d'\vert\triangle\vert^{\ell+1}\vert \phi\vert_{d+1,\infty,\Omega}\\
+    =& C_\ell \vert\phi\vert_{\ell+1,\infty,\Omega}\vert \triangle\vert^{\ell+1}.
+\end{align*}
+然后令 $g \in W^{\ell+1,\infty}(\Omega)$, 代入式(\ref{inequ:tildephi}), 可得该命题成立.
+\end{proof}
+
+\subsection{命题\ref{Prop:order of error Z}的证明}
+\begin{proof}
+    应用附录中引理 \ref{Lemma:BZ} 以及等式 (\ref{EQ:BV}), 可以得到
+\begin{align*}
+    \Vert \tilde{\boldsymbol{Z}}\Vert_{\infty} = &\sup_{\boldsymbol{x}\in\Omega}\left\vert\boldsymbol{B}^{\top}(\boldsymbol{x})\boldsymbol{Q}_2\left(\tilde{\boldsymbol{B}}^{\top}\tilde{\boldsymbol{B}}\right)^{-1}\tilde{\boldsymbol{B}}^{\top}\boldsymbol{Z}\right\vert\\
+    =&\sup_{\boldsymbol{x}\in\Omega}\left\vert{\boldsymbol{B}}^{\top}(\boldsymbol{x})\boldsymbol{Q}_2\hat{\bm{\Gamma}}^{-1}_{n''}{n''^{-1}\tilde{\boldsymbol{B}}}^{\top}\boldsymbol{Z}\right\vert\\
+    \leq & c(d+1)(d+2)\vert\triangle\vert^{-2}\left\Vert n''^{-1}\tilde{\boldsymbol{B}}^{\top}\boldsymbol{Z}\right\Vert_{\infty}\\
+    =& \mathcal{O}_p\left(n''^{-1/2}\vert\triangle\vert^{-1}(\log n)^{1/2}\right).
+\end{align*}
+至此, 命题证明完成.
+\end{proof}
+
+\chapterwithfancyheader{置信区域的构造}\label{SEC: estimate}
+
+\section{核分布函数估计量}\label{KDE}
+
+若 $n'$ 个测量误差 $\{Z_{\mathbf{i}'}\}_{\mathbf{i}' \in \mathcal{I}_{n'}}$ 能够通过 ``oracle'' 方式被观测到, 则可以构造其经验边际分布函数
+\begin{align*}
+F_{n'}(z) = n'^{-1} \sum_{\mathbf{i}' \in \mathcal{I}_{n'}} I\left(Z_{\mathbf{i}'} \le z\right),
+\end{align*}
+并进一步定义相应的不可行核分布估计量 $\tilde{F}_{n',h}(z)$ 为
+\begin{equation}\label{EQ:Fn'tilde}
+\tilde{F}_{n',h}(z)
+= \int_{-\infty}^{z} \tilde{f}(u) \, du
+= n'^{-1} \sum_{\mathbf{i}' \in \mathcal{I}_{n'}}
+\int_{-\infty}^{z} K_h(u - Z_{\mathbf{i}'}) \, du, 
+\quad z \in \mathbb{R},
+\end{equation}
+其中 $K$ 为核函数, $K_h(u) = h^{-1} K(u/h)$, $h>0$ 为带宽参数. 相关细节可参见文献 \cite{wang2013smooth}.
+
+定义任意两个分布函数 $F(\cdot)$ 与 $H(\cdot)$ 之间的最大偏差为
+\begin{equation}\label{EQ:D(F,H)}
+D(F,H) = \sup_{z \in \mathbb{R}} |F(z) - H(z)| = ||F - H||_{\infty},
+\end{equation}
+即二者差异的上确界范数, 常用于刻画分布函数之间的一致距离.
+
+根据 Donsker 定理, 对任意 $Q>0$, 有
+\begin{align}\label{Equ:pFn'}
+\mathrm{P}\left\{ n'^{1/2} D\left(F_{n'}, F\right) \le Q \right\}
+\rightarrow L(Q), \quad n' \rightarrow \infty,
+\end{align}
+其中 $L(\cdot)$ 为 Kolmogorov 分布函数, 定义为
+\[
+L(Q) \equiv 1 - 2 \sum_{j=1}^{\infty} (-1)^{j-1} \exp\left(-2 j^2 Q^2\right), 
+\quad Q>0.
+\]
+
+根据文献 \cite{wang2013smooth}, 不可行 KDE $\tilde{F}_{n',h}(z)$ 与 $F_{n'}(z)$ 在渐近意义下等价, 即
+$D(\tilde{F}_{n',h}, F_{n'}) = \mathcal{O}_p(n'^{-1/2})$. 结合 Slutsky 定理可得
+\begin{align}\label{Equ:pFtilde}
+\mathrm{P}\left\{ n'^{1/2} D\left(\tilde{F}_{n',h}, F\right) \le Q \right\}
+\rightarrow L(Q), \quad n' \rightarrow \infty.
+\end{align}
+
+式 \eqref{Equ:pFn'} 与式\eqref{Equ:pFtilde} 分别得出了两类不可行的柯尔莫格洛夫-斯米尔诺夫型同时置信带. 第一类为基于经验分布函数 $F_{n'}(z)$ 的``非光滑"同时置信带:
+\[
+\left[
+F_{n'}(z) - \frac{L_{1-\alpha}}{\sqrt{n'}},
+F_{n'}(z) + \frac{L_{1-\alpha}}{\sqrt{n'}}
+\right] \cap [0,1], 
+\quad z \in \mathbb{R},
+\]
+第二类为基于光滑核分布函数估计 $\tilde{F}_{n',h}(z)$ 的光滑同时置信带:
+\begin{align} \label{SCB:Ftilden'}
+    \left[ \tilde{F}_{n',h}(z) - \frac{L_{1-\alpha}}{\sqrt{n'}},\tilde{F}_{n',h}(z) + \frac{L_{1-\alpha}}{\sqrt{n'}} \right] \cap [0,1], \quad z \in \mathbb{R}.
+\end{align}
+
+由于真实误差 $\{Z_{\mathbf{i}'}\}_{\mathbf{i}' \in \mathcal{I}_{n'}}$ 不可观测, 上述不可行估计量仅作为理论基准. 为实现可操作的推断, 采用如下两步估计方法. 首先利用式 \eqref{EQ:BSTLS} 所定义的双变量样条估计获得趋势函数估计 $\hat{g}(\cdot)$. 随后, 基于伪残差
+$\hat{Z}_{\mathbf{i}'} = Y_{\mathbf{i}'} - \hat{g}(x_{\mathbf{i}'})$
+构造可行的核分布估计量
+\begin{equation}\label{EQ:Fn'hhat}
+\hat{F}_{n',h}(z)
+= n'^{-1} \sum_{\mathbf{i}' \in \mathcal{I}_{n'}}
+\int_{-\infty}^{z} K_h(u - \hat{Z}_{\mathbf{i}'}) \, du,
+\quad z \in \mathbb{R}.
+\end{equation}
+
+进而, 提出基于 $\hat{F}_{n',h}(z)$ 的光滑同时置信带:
+\begin{align}\label{SCB:Fhatn'h}
+\left[
+\hat{F}_{n',h}(z) - \frac{L_{1-\alpha}}{\sqrt{n'}},
+\hat{F}_{n',h}(z) + \frac{L_{1-\alpha}}{\sqrt{n'}}
+\right] \cap [0,1], 
+\quad z \in \mathbb{R},
+\end{align}
+并通过证明
+\[
+D\left(\hat{F}_{n',h}, \tilde{F}_{n',h}\right)
+= \mathcal{O}_p(n'^{-1/2})
+\]
+来论证其有效性. 因此, 尽管 $\hat{F}_{n',h}$ 并未依赖于真实趋势函数 $g(\cdot)$, 其渐近性质与 oracle 情形下的估计量保持一致, 从而称该置信带为oracle同时置信带.
+作为对比, 本文同时考虑一种 ``非光滑'' 的经验边际分布函数 EMDF:
+\begin{equation} \label{EQ:Fn'hat}
+    \hat{F}_{n'}(z) = n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}} I(\hat{Z}_{\mathbf{i}'} \le z), \quad z \in \mathbb{R}.
+\end{equation}
+将方程~(\ref{SCB:Fhatn'h}) 中的 $\hat{F}_{n',h}$ 替换为 $\hat{F}_{n'}$, 即可得到对应的 ``非光滑'' 同时置信带:
+\begin{align} \label{SCB:Fhatn'}
+    \left[ \hat{F}_{n'}(z) - \frac{L_{1-\alpha}}{\sqrt{n'}},  \hat{F}_{n'}(z) + \frac{L_{1-\alpha}}{\sqrt{n'}} \right] \cap [0,1], \quad z \in \mathbb{R},
+\end{align}
+该置信带作为一种缺乏理论保证的基准方法, 仅用于模拟研究中的性能比较.
+
+
+数值结果表明, ``非光滑"的 EMDF $\hat{F}_{n'}$ 在覆盖率表现上与所提估计量 $\hat{F}_{n',h}$ 相近, 但其最大偏差明显更大, 具体结果见表 \ref{tab:Dbar}. 这一现象与已有文献中的结果保持一致, 参见文献\cite{gu2021smooth} 和 \cite{wang2022oracle}.
+
+据现有文献可知, 针对非平稳空间序列背景下的边际误差分布, 本文首次建立了光滑同时置信带的渐近构造方法. 该方法不仅能够确保渐近精确的覆盖概率, 且在有限样本下亦能实现名义水平下的同时覆盖. 此外, 所提出的 KDE $\hat{F}_{n',h}$ 及其对应的光滑同时置信带在多种误差分布情形下均表现出良好的稳健性, 包括高斯分布和非高斯分布. 更进一步地, 该方法避免了对具有复杂且可能不可处理协方差结构的经验过程上确界分位数的直接估计, 从而在计算上更具可行性.
+
+需要特别指出的是, 定理 \ref{THM:FhatFtilde} 的类似结论并不适用于以下情形:
+\begin{eqnarray*}
+\hat{F}_{n,h}\left( z \right)
+&=& n^{-1} \sum_{\mathbf{i} \in \mathcal{I}_n} \int_{-\infty}^{z}
+K_h\left( u - \hat{Z}_{\mathbf{i}}^{\ast} \right) du, \quad z \in \mathbb{R}, \\
+\tilde{F}_{n,h}\left( z \right)
+&=& n^{-1} \sum_{\mathbf{i} \in \mathcal{I}_n} \int_{-\infty}^{z}
+K_h\left( u - Z_{\mathbf{i}} \right) du, \quad z \in \mathbb{R},
+\end{eqnarray*}
+其中残差 $\hat{Z}_{\mathbf{i}}^{\ast} = Y_{\mathbf{i}} - \hat{g}^{\ast}(x_{\mathbf{i}})$，$\mathbf{i} \in \mathcal{I}_n$，用于估计不可观测的真实残差 $Z_{\mathbf{i}} = Y_{\mathbf{i}} - g(x_{\mathbf{i}})$，$\mathbf{i} \in \mathcal{I}_n$，且 $\hat{g}^{\ast}(\cdot)$ 为 $g(\cdot)$ 的二元样条估计量.
+
+综上, 本文首次为非平稳空间序列的边缘误差分布构建了具有渐近精确覆盖率的柯尔莫格洛夫-斯米尔诺夫型同时置信带, 并展示了光滑核分布函数估计方法在复杂空间依赖结构下仍能保持良好理论性质.
+
+\section{估计量的收敛性质与证明}
+
+基于命题 \ref{Prop:diffierence of mean function}–\ref{Prop:order of Z-Zhat}，下面建立所提出 KDE $\hat{F}_{n',h}$ 在整个 $\mathbb{R}$ 上具有渐近一致的默示有效性.
+\begin{thm} \label{THM:FhatFtilde}
+在假设 (A1)–(A6) 成立的条件下, oracle 估计量 $\hat{F}_{n',h}(\cdot)$ 在 $\mathbb{R}$ 上与不可行估计量 $\tilde{F}_{n',h}(\cdot)$ 渐近等价, 即当 $n \to \infty$ 时, 有
+\[
+D\left(\hat{F}_{n',h}, \tilde{F}_{n',h}\right)
+= \left\Vert \hat{F}_{n',h} - \tilde{F}_{n',h} \right\Vert_{\infty}
+= {\scriptstyle{\mathcal{O}}}_p\left(n'^{-1/2}\right).
+\]
+\end{thm}
+
+根据文献\cite{fazekas2003limit}，在指数衰减的混合条件以及足够稀疏的空间采样下，经验过程在分布意义下收敛到布朗桥:
+\[
+n'^{1/2}\left(F_{n'}(\cdot) - F(\cdot)\right)
+\overset{D}{\rightarrow} \mathcal{B}(F(\cdot)),
+\]
+其中 $\mathcal{B}(\cdot)$ 表示标准布朗桥.
+
+结合定理 \ref{THM:FhatFtilde}, 并参考文献\cite{wang2013smooth}中
+$\left\Vert \tilde{F}_{n',h} - F_{n'} \right\Vert_{\infty}
+= {\scriptstyle{\mathcal{O}}}_p\left(n'^{-1/2}\right)$,
+可得
+\[
+\left\Vert \hat{F}_{n',h} - F_{n'} \right\Vert_{\infty}
+= {\scriptstyle{\mathcal{O}}}_p\left(n'^{-1/2}\right).
+\]
+因此得到如下推论.
+
+\begin{coro} \label{corollary:KDESCB}
+在假设 (A1)–(A6) 成立的条件下, 当 $n \to \infty$ 时,
+\[
+\sqrt{n'}\left( \hat{F}_{n',h}(\cdot) - F(\cdot) \right)
+\overset{D}{\rightarrow} \mathcal{B}(F(\cdot)).
+\]
+特别地, 对任意 $z \in \mathbb{R}$, 有
+\[
+\mathrm{E}\left\{ \mathcal{B}(F(z)) \right\}^2
+= F(z)\left\{1 - F(z)\right\},
+\]
+从而
+\[
+n'^{1/2}\left\{F(z)(1 - F(z))\right\}^{-1/2}
+\left( \hat{F}_{n',h}(z) - F(z) \right)
+\overset{D}{\rightarrow} N(0,1), \quad \forall z \in \mathbb{R}.
+\]
+此外，
+\[
+\lim_{n \to \infty}
+P\left\{ n'^{1/2} D\left(\hat{F}_{n',h}, F\right) \le Q \right\}
+= L(Q), \quad Q > 0.
+\]
+因此，对任意 $\alpha \in (0,1)$，
+\[
+\lim_{n \to \infty}
+P\left\{ F(z) \in \hat{F}_{n',h}(z)
+\pm \frac{L_{1-\alpha}}{\sqrt{n'}},
+\ z \in \mathbb{R} \right\}
+= 1 - \alpha,
+\]
+即如式 (\ref{SCB:Fhatn'h}) 所示，构造得到了 $F(z)$ 的光滑同时置信带.
+\end{coro}
+
+\begin{rema}
+假设 (A3) 与 (A4) 保证了经验过程满足 Donsker 定理所需的渐近独立结构. 也就是说，仅当用于 KDE 构造的空间子样本 $\mathcal{I}_{n'}$ 足够稀疏，例如 $T_n \sim n^{1/6}\log(\log n)$，推论 \ref{corollary:KDESCB} 才能为柯尔莫格洛夫-斯米尔诺夫型统计量的渐近分布由布朗桥刻画提供理论依据，从而保证所构造同时置信带的有效性. 当空间相关性足够弱时，泛函中心极限定理中的渐近方差与独立情形一致.
+\end{rema}
+
+\subsection{定理\ref{THM:FhatFtilde}的证明}
+\begin{proof}
+根据均值定理, 将差值 $\hat{F}_{n',h}(z)-\tilde{F}_{n',h}(z)$ 分解为
+\begin{equation}\label{EQ:Fnhhat-Fnhtilde}
+    \hat{F}_{n',h}(z)-\tilde{F}_{n',h}(z)=T_1+T_2+R_3,
+\end{equation}
+其中
+\begin{align*}
+    &T_1=T_1(z)=n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h\left(z-Z_{\mathbf{i}'}\right)\left(Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}\right),\\
+    &T_2=T_2(z)=(2n')^{-1}h\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K'_h\left(z-Z_{\mathbf{i}'}\right)\left(\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right)^2,\\
+    &R_3=R_3(z)=(6n')^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K''_h\left(\frac{z-\varrho_{\mathbf{i}'}}{h}\right)\left(\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right)^3,
+\end{align*}
+其中 $\varrho_{\mathbf{i}'}$ 取值于 $Z_{\mathbf{i}'}$ 与 $\hat{Z}_{\mathbf{i}'}$ 之间, $\mathbf{i}'\in\mathcal{I}_{n'}$. 因此, 求 $\hat{F}_{n',h}(z)-\tilde{F}_{n',h}(z)$ 的一致上界可以通过分别控制 $\sup_{z\in\mathbb{R}}|T_1(z)|$, $\sup_{z\in\mathbb{R}}|T_2(z)|$ 和 $\sup_{z\in\mathbb{R}}|R_3(z)|$ 来获得.
+
+(i) 证明 $T_1(z)$ 的一致上界.
+
+结合式(\ref{EQ:ghat})-式(\ref{Ztilde}), 可得
+\begin{align}\label{EQ:T1}
+    T_1
+    =n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+      K_h(z-Z_{\mathbf{i}'})\left(Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}\right)
+    =\mathrm{I}+\mathrm{II},
+\end{align}
+其中
+\begin{align*}
+    &\mathrm{I}(z)
+    =n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+      K_h(z-Z_{\mathbf{i}'})
+      \left\{\tilde{g}(x_{\mathbf{i}'})-g(x_{\mathbf{i}'})\right\},\\
+    &\mathrm{II}(z)
+    =n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+      K_h(z-Z_{\mathbf{i}'})
+      \mathbf{B}^{\top}(x_{\mathbf{i}'})\mathbf{Q}_2
+      \left(\tilde{\mathbf{B}}^{\top}\tilde{\mathbf{B}}\right)^{-1}
+      \tilde{\mathbf{B}}^{\top}\mathbf{Z}.
+\end{align*}
+因此, 对 $T_1(z)$ 的控制等价于分别控制 $\mathrm{I}(z)$ 与 $\mathrm{II}(z)$.
+
+结合命题 \ref{Prop:diffierence of mean function} 与推论 \ref{colrollary:ftilde}, 有
+\begin{align}\label{EQ:roman1z}
+    \sup_{z\in\mathbb{R}}|\mathrm{I}(z)|
+    \leq
+    \sup_{\boldsymbol{x}\in\Omega}
+    |\tilde{g}(\boldsymbol{x})-g(\boldsymbol{x})|
+    ||\tilde{f}||_{\infty}
+    =\mathcal{O}_{a.s.}\left(|\triangle|^{\ell+1}\right)
+    =\mathcal{O}_{a.s.}\left(n'^{-1/2}\right).
+\end{align}
+
+另一方面,
+\begin{align*}
+    \mathrm{II}(z)
+    =n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+      K_h(z-Z_{\mathbf{i}'})
+      \mathbf{B}^{\top}(x_{\mathbf{i}'})\mathbf{Q}_2
+      \hat{\boldsymbol{\Gamma}}_{n''}^{-1}
+      \frac{\tilde{\mathbf{B}}^{\top}\mathbf{Z}}{n''}.
+\end{align*}
+由附录中的引理 \ref{Lemma:KB1}, \ref{Lemma:KB} 及式 (\ref{EQ:Gammahat}) 可得
+\begin{align}\label{EQ:roman2z}
+            &\sup_{z\in\mathbb{R}}\left\vert \mathrm{II}(z)\right\vert \\
+            \leq &C_p\Vert  \hat{\boldsymbol{\Gamma}}_{n''}^{-1}\Vert_{\infty}\times
+            \left\{ \sup_{\vert z\vert\leq a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\tilde{B}_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert\right. \notag \\
+             &\left. +\sup_{\vert z\vert > a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\tilde{B}_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert
+            \right\} \notag \\
+            =&\mathcal{O}\left(\vert\triangle\vert^{-2}\right)\mathcal{O}_p\left(n'^{-1/2}\vert\triangle\vert^{2}\right)\notag\\
+            =& {\scriptstyle \mathcal{O}}_p\left(n'^{-1/2}\right).\notag
+        \end{align}
+结合式(\ref{EQ:T1}), 式(\ref{EQ:roman1z}) 与 式(\ref{EQ:roman2z}), 有
+ \begin{align} \label{OUTCOME:T1}
+            \sup_{z\in\mathbb{R}} \left\vert T_1(z)\right\vert \leq \sup_{z\in\mathbb{R}}\left\vert \mathrm{I}(z)\right\vert + \sup_{z\in\mathbb{R}}\left\vert \mathrm{II}(z)\right\vert
+            ={\scriptstyle \mathcal{O}}_p\left(n'^{-1/2}\right).
+        \end{align}
+
+\medskip
+\noindent
+
+(ii) 证明$T_2(z)$ 的一致上界.
+
+由命题\ref{Prop:order of Z-Zhat}可得,
+        \begin{align*}
+            \max_{\mathbf{i}'\in\mathcal{I}_{n'}}\left\vert Z_{\mathbf{i}'} - \hat{Z}_{\mathbf{i}'}\right\vert = \mathcal{O}_p\left(\vert\triangle\vert^{\ell+1}+n''^{-1/2}\vert\triangle\vert^{-1}(\log n)^{1/2}\right).
+        \end{align*}
+从而,
+ \begin{align*}
+            \max_{\mathbf{i}'\in\mathcal{I}_{n'}}\left\vert\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right\vert^2 = \mathcal{O}_p\left(h^{-2}\vert\triangle\vert^{2(\ell+1)}+h^{-2}n''^{-1}\vert\triangle\vert^{-2}\log n\right).
+        \end{align*}
+进而可得,
+         \begin{align}
+            \sup_{z\in\mathbb{R}}\left\vert T_2(z)\right\vert 
+            \leq &\sup_{z\in\mathbb{R}}\left\vert (2n')^{-1}h\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h'(z-Z_{\mathbf{i}'})\left(\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right)^2\right\vert\notag\\
+            \leq& h\max_{\mathbf{i}'\in\mathcal{I}_{n'}}\left(\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right)^2\sup_{z\in\mathbb{R}}n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}\left\vert K_h'(z-Z_{\mathbf{i}'})\right\vert\notag\\
+            =&\mathcal{O}_p\left(n'^{-1/2}\right)\notag.
+        \end{align}
+即
+\begin{align}\label{OUTCOME:T2}
+    \sup_{z\in\mathbb{R}}|T_2(z)|
+    ={\scriptstyle\mathcal{O}}_p\left(n'^{-1/2}\right).
+\end{align}
+
+\medskip
+\noindent
+
+(iii) 证明$R_3(z)$ 的一致上界.
+
+同理, 由命题 \ref{Prop:order of Z-Zhat}可得,
+\begin{align*}
+            \max_{l\in\mathcal{L}}\left\vert\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right\vert^3 = \mathcal{O}_p\left(h^{-3}\vert\triangle\vert^{3(\ell+1)}+h^{-3}n''^{-3/2}\vert\triangle\vert^{-3}(\log n)^{3/2}\right).
+        \end{align*}
+进而,
+\begin{align*}
+            \sup_{z\in\mathbb{R}}\left\vert R_3(z)\right\vert = & \sup_{z\in\mathbb{R}}\left\vert (6n')^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K''\left(\frac{z-\varrho_{\mathbf{i}''}}{h}\right)\left(\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right)^3\right\vert\notag\\
+            \leq& \max_{\mathbf{i}'\in\mathcal{I}_{n'}}\left\vert\frac{Z_{\mathbf{i}'}-\hat{Z}_{\mathbf{i}'}}{h}\right\vert^3\sup_{z\in\mathbb{R}}(6n')^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K''\left\vert\frac{z-\varrho_{\mathbf{i}''}}{h}\right\vert\notag\\
+            =& \mathcal{O}_p\left(h^{-3}\vert\triangle\vert^{3(\ell+1)}+h^{-3}n''^{-3/2}\vert\triangle\vert^{-3}(\log n)^{3/2}\right).\notag
+        \end{align*}
+        即
+    \begin{align}\label{OUTCOME:R3}
+                \sup_{z\in\mathbb{R}}\left\vert R_3(z)\right\vert = {\scriptstyle\mathcal{O}}_p(n'^{-1/2}).
+            \end{align}
+
+最后, 结合式(\ref{EQ:Fnhhat-Fnhtilde}) 及
+式(\ref{OUTCOME:T1})–式(\ref{OUTCOME:R3}), 得到
+\begin{align*}
+    \sup_{z\in\mathbb{R}}
+    \left|\hat{F}_{n',h}(z)-\tilde{F}_{n',h}(z)\right|
+    ={\scriptstyle\mathcal{O}}_p\left(n'^{-1/2}\right).
+\end{align*}
+证毕.
+
+\end{proof}
+
+
+\chapterwithfancyheader{数值模拟与实证分析}\label{SEC: application}
+
+\section{节点选择}
+本节主要介绍高效估计量 $\hat{F}_{n',h}$，实现式~(\ref{SCB:Fhatn'h}) 中 oracle 光滑同时置信带的具体步骤.
+
+为了构造双变量趋势函数 $g$ 的二元样条估计量，首先需要指定样条空间 $\mathbb{S}_{d}^{r}(\triangle)$, 其定义见式~\eqref{DEF:S_rd}. 根据文献\cite{lai2007spline}, 当 $r \geq 1$ 且 $d \geq 3r + 2$ 时，空间 $\mathbb{S}_{d}^{r}(\triangle)$ 具有最优的逼近性质. 在数值研究中,本文采用光滑参数 $r = 1$ 和 $d = 5$ 的二元样条.
+
+如文献 \cite{lai2013bivariate} 所指出的, 只要三角剖分中所使用的三角形数量 $N$ 超过由所需光滑阶数决定的最小阈值, 二元样条光滑方法对 $N$ 的选择并不敏感. 为降低计算成本，实践中通常选取相对较小的 $N$. 在高阶二元样条光滑的情形下, 文献\cite{yu2019estimation} 建议将 $N$ 选取为
+\[
+N = \min \left\{ \left\lfloor c n^{1/(\ell+2)} \right\rfloor, \, n/4 \right\} + 1,
+\]
+其中, $c$ 为调节参数. 数值实验表明, 当 $c \in [1, 20]$ 时该选择具有良好的表现. 当三角形数量$N$给定后, 本文采用最大-最小角度准则对定义域进行三角剖分, 该准则通过最大化所有三角形角度中的最小角度, 有效避免了瘦长三角形的产生, 参见文献\cite{lai2007spline}. 三角剖分通过 Matlab 中的 \texttt{Distmesh2d} 函数生成, 结果如图 \ref{Fig:trigulation-sim} 所示. 二元样条方法的实现采用 R 软件包 ``BPST''.
+
+尽管 $T_n$ 的原始定义基于一维索引, 在空间情形下本文采用一种近似的抽样方案, 即在二维规则网格上沿经度和纬度方向以间距 $T_n$ 选取位置, 参见文献 \cite{lu2014nonparametric}. 这种空间子抽样方式保证了观测点之间具有足够的间隔, 从而减弱短距离相关性的影响, 并使其满足弱依赖随机场中 Donsker 型极限定理的要求. 因此, 在数值研究中, 相邻网格点之间的距离设定为
+\[
+T_n = \left\lfloor \left[ a_1 n^\theta (\log n)^{a_2} \log(\log n) \right]^{1/2} \right\rfloor,
+\]
+其中默认取值为 $a_1 = 0.3$，$a_2 = 1$，以及 $\theta = 1/6$.
+
+在核光滑步骤中, 本文采用 triweight 核函数 $K(u) = 35/32(1 - u^2)^3$, $|u| \leq 1$, 带宽选取为
+\[
+h = \mathrm{IQR} \times n'^{-1/4} \left[ a_3 \log(\log n') \right]^{-1},
+\]
+其中 $a_3 = 1$, $\mathrm{IQR}$ 表示残差集合 $\{ \hat{Z}_{\mathbf{i}'} \}_{\mathbf{i}' \in \mathcal{I}_{n'}}$ 的样本四分位距. 该带宽选择方式旨在满足假设~(A6).
+
+%%%%%%%%%%% Figure: trigulation %%%%%%%%%
+\begin{figure}[H]
+    \centering 
+    \setlength{\tabcolsep}{0pt} 
+    \begin{tabular}{cc}
+        \includegraphics[width=0.52\textwidth]{plots/tri_re6.pdf} &
+        \hspace{-0.4in}
+        \includegraphics[width=0.52\textwidth]{plots/tri_ir6.pdf} \\
+        (a) & (b) \\
+    \end{tabular}
+    \caption{三角剖分示例：(a)矩形区域 (b) shape区域}
+    \label{Fig:trigulation-sim}
+\end{figure}
+
+\section{数值模拟}
+本节通过一系列蒙特卡罗模拟来评估所提出方法的有限样本表现. 模型~\eqref{model:nonparbiregression} 中的真实趋势函数设定为
+\[
+g(x_1, x_2) = \sin(\pi x_1) + \exp(-x_2^2),
+\]
+空间误差过程 \( Z_{i_1, i_2} \) 按如下空间移动平均(SMA)模型生成：
+\[
+Z_{i_1, i_2} = e_{i_1, i_2} + 0.3\, e_{i_1, i_2-1} + 0.3\, e_{i_1-1, i_2} + 0.1\, e_{i_1-1, i_2-1},
+\]
+其中 \( e_{i_1, i_2} \) 为来自标准正态分布 \( N(0,1) \) 的独立同分布误差项. 本文考虑两个不同的空间区域来评估所提出的同时置信带方法的表现.
+
+情形 I (矩形域): 观测点分布在规则矩形网格上, 样本量为 \( n = n_1 n_2 \), 其中  
+\[
+(n_1, n_2) = (100, 50), (200, 100), (200, 200), (500, 500).
+\]
+
+情形 II (不规则域): 为进一步检验本文方法的稳健性, 模拟过程引入不规则区域估计, 如图~\ref{Fig:trigulation-sim}(b) 所示. 该不规则区域通过三角剖分软件 \texttt{Distmesh} 生成, 仅保留落入形状内部的观测点. 为确保与情形 I 的结果具有可比性, 首先生成与矩形域相同规模的初始网格数据  
+\[
+(n_1, n_2) = (100, 50), (200, 100), (200, 200), (500, 500),
+\]
+经不规则区域筛选后, 实际参与估计的有效样本量分别为  
+\(n = 2443, 9723, 19449, 121442.\)
+
+本文在不同的设置下进行模拟研究, 并在 500 次重复实验中比较所构造同时置信带的经验覆盖概率.
+
+本文使用二元样条方法估计未知趋势函数 \( g \), 并构造所提出的 KDE 估计量 \( \hat{F}_{n',h} \)、非光滑 EMDF \( \hat{F}_{n'} \), 以及不可行 KDE \( \tilde{F}_{n',h} \). 由于创新项为高斯分布, 过程 \( Z_{i_1,i_2} \) 是正态随机变量的线性组合, 因此也服从正态分布, 其分布函数 \( F(z) \) 具有显式解析表达式. 这使得可以直接计算式~\eqref{EQ:D(F,H)} 定义的最大偏差 \( D(\cdot, F) \), 并用于评估理论覆盖性质.
+
+对于情形 I 和情形 II，表~\ref{tab:Dbar} 给出了相应的最大偏差. 随着样本量的增加, 所有估计量的偏差均呈现减小趋势. 值得注意的是, 所提出的光滑估计量 \( \hat{F}_{n',h} \) 以及不可行光滑估计量 \( \tilde{F}_{n',h} \) 均显著优于非光滑 EMDF \( \hat{F}_{n'} \). 图~\ref{Fig:bpN01} 展示了 \( D(\hat{F}_{n',h}, F) \) 的箱线图, 进一步验证了所提出估计量在不同空间域下的一致性与有效性. 图~\ref{Fig:NormalF} 展示了真实分布函数 \( F \)、带有光滑渐近 99\% SCB 的oracle KDE \( \hat{F}_{n',h} \)、不可行 KDE \( \tilde{F}_{n',h} \)，以及 EMDF $\hat{F}_{n'}$，对应样本规模为 \((n_1, n_2) = (100, 50), (500, 500).\) 可以看出，所有估计量均接近真实分布函数 \( F \), 且 SCB 能完整覆盖真实 EMDF, 这与理论结果一致.
+
+为进一步评估推断精度, 本文比较所提出的 oracle SCB 的覆盖频率, 包括式 \eqref{SCB:Ftilden'}定义的光滑不可行 SCB、式 \eqref{SCB:Fhatn'h}定义的oracle SCB 以及式 \eqref{SCB:Fhatn'}定义的非光滑 SCB. 光滑不可行 SCB 基于未观测误差 \(\{Z_{\mathbf{i}'}\}_{\mathbf{i}'\in\mathcal{I}_{n'}}\) 构造, 用作性能基准. 将置信水平设为 \(1-\alpha = 0.99, 0.95, 0.90, 0.80\), 分别在情形 I 和情形 II 下进行实验. 表~\ref{TAB:coveragerate-N(0,1)} 与表~\ref{TAB:coveragerate-N(0,1)-irregular} 给出了经验覆盖概率. 结果显示, 基于 KDE 的光滑同时置信带在覆盖频率上更接近名义置信水平, 与基于 EMDF 的非光滑 SCB 相比表现更优. 这是与预期相符的, 因为光滑 SCB 更适合用于覆盖连续分布函数, 而非光滑 SCB 的界限为阶梯函数, 其不连续性使其更难完全覆盖连续分布函数.
+
+在每组实验设定下, 当 oracle SCB 的覆盖频率较光滑不可行 SCB 更接近名义水平 \(1-\alpha\) 时标记为 “$\ast\ast$”; 当两者偏差相同时标记为 “$\ast$”. 在情形 I 和情形 II 的 32 组比较中, 共有 26 组获得 “$\ast\ast$” 或 “$\ast$” 标记, 尤其是在较大样本量如 (200,200) 和 (500,500)下表现更为显著. 总体而言, 随着样本量的增加, 方法表现稳步提升, 且 oracle 同时置信带在多数设置中表现最佳.
+
+{
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{式~(\ref{EQ:Fn'hhat}) 中 oracle KDE $\hat{F}_{n',h}$, 式~(\ref{EQ:Fn'hat}) 中 ``非光滑'' EMDF $\hat{F}_{n'}$, 以及式~(\ref{EQ:Fn'tilde}) 中不可行 KDE $\tilde{F}_{n',h}$ 的平均最大偏差
+}
+    \label{tab:Dbar}
+    \begin{tabular}{llcc}
+        \toprule
+        偏差 & $(n_1,n_2)$ & 情形 I & 情形 II \\
+        \midrule
+        \multirow{4}{*}{$\bar{D}(\hat{F}_{n',h},F)$} 
+            & $(100,50)$    & 0.0433 & 0.0571\\
+            & $(200,100)$   & 0.0294 & 0.0300 \\
+            & $(200,200)$   & 0.0209 & 0.0209 \\
+            & $(500,500)$   & 0.0100 & 0.0144 \\
+        \midrule
+        \multirow{4}{*}{$\bar{D}(\hat{F}_{n'},F)$} 
+            & $(100,50)$    & 0.0435 & 0.0577\\
+            & $(200,100)$   & 0.0294 & 0.0302 \\
+            & $(200,200)$   & 0.0225 & 0.0225 \\
+            & $(500,500)$   & 0.0107 & 0.0153\\
+        \midrule
+        \multirow{4}{*}{$\bar{D}(\tilde{F}_{n',h},F)$} 
+            & $(100,50)$    & 0.0425 & 0.0574 \\
+            & $(200,100)$   & 0.0287 & 0.0292 \\
+            & $(200,200)$   & 0.0199 & 0.0204 \\
+            & $(500,500)$   & 0.0097 & 0.0140\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+}
+
+\begin{table}[tph]
+\caption{情形 I 中基于正态分布所得SCB的覆盖率
+}
+\label{TAB:coveragerate-N(0,1)}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\multirow{2}{*}{$(n_1,n_2)$} & \multirow{2}{*}{$1-\alpha$} & \multicolumn{3}{c}{覆盖率} & \multirow{2}{*}{比较结果} \\ 
+\cmidrule{3-5}
+& & $\hat{F}_{n', h}$ & $\hat{F}_{n'}$ & $\tilde{F}_{n', h}$ & \\ 
+\midrule
+$(100,50)$  & 0.99 & 0.988 & 0.986 & 0.988 & $\ast$ \\
+            & 0.95 & 0.936 & 0.932 & 0.954 & -- \\
+            & 0.90 & 0.892 & 0.876 & 0.872 & $\ast\ast$ \\
+            & 0.80 & 0.810 & 0.806 & 0.788 & $\ast\ast$ \\ \addlinespace
+$(200,100)$ & 0.99 & 0.988 & 0.988 & 0.994 & $\ast\ast$ \\
+            & 0.95 & 0.940 & 0.940 & 0.958 & -- \\
+            & 0.90 & 0.890 & 0.892 & 0.910 & $\ast$ \\
+            & 0.80 & 0.806 & 0.812 & 0.836 & $\ast\ast$ \\ \addlinespace
+$(200,200)$ & 0.99 & 0.984 & 0.976 & 0.998 & $\ast\ast$ \\
+            & 0.95 & 0.944 & 0.932 & 0.964 & $\ast\ast$ \\
+            & 0.90 & 0.902 & 0.860 & 0.926 & $\ast\ast$ \\
+            & 0.80 & 0.810 & 0.764 & 0.850 & $\ast\ast$ \\ \addlinespace
+$(500,500)$ & 0.99 & 0.992 & 0.984 & 0.992 & $\ast$ \\
+            & 0.95 & 0.954 & 0.936 & 0.968 & $\ast\ast$\\
+            & 0.90 & 0.896 & 0.874 & 0.932 & $\ast\ast$ \\
+            & 0.80 & 0.828 & 0.778 & 0.864 & $\ast\ast$\\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[tph]
+\caption{情形 II中基于正态分布所得SCB的覆盖率
+}
+\label{TAB:coveragerate-N(0,1)-irregular}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\multirow{2}{*}{$(n_1,n_2)$} & \multirow{2}{*}{$1-\alpha$} & \multicolumn{3}{c}{覆盖率} & \multirow{2}{*}{比较结果} \\ 
+\cmidrule{3-5}
+& & $\hat{F}_{n', h}$ & $\hat{F}_{n'}$ & $\tilde{F}_{n', h}$ & \\ 
+\midrule
+$(100,50)$  & 0.99 & 0.988 & 0.986 & 0.988 & $\ast$ \\
+            & 0.95 & 0.966 & 0.966 & 0.960 &  -- \\
+            & 0.90 & 0.916 & 0.910 & 0.914 &  -- \\
+            & 0.80 & 0.818 & 0.814 & 0.860 & $\ast\ast$ \\ \addlinespace
+$(200,100)$ & 0.99 & 0.998 & 0.998 & 0.996 & -- \\
+            & 0.95 & 0.966 & 0.960 & 0.968 & -- \\
+            & 0.90 & 0.914 & 0.910 & 0.912 & -- \\
+            & 0.80 & 0.814 & 0.816 & 0.810 & $\ast\ast$ \\ \addlinespace
+$(200,200)$ & 0.99 & 0.992 & 0.990 & 0.992 & $\ast$ \\
+            & 0.95 & 0.960 & 0.956 & 0.974 & $\ast\ast$ \\
+            & 0.90 & 0.914 & 0.892 & 0.930 & $\ast\ast$ \\
+            & 0.80 & 0.828 & 0.798 & 0.838 & $\ast\ast$ \\ \addlinespace
+$(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
+            & 0.95 & 0.954 & 0.940 & 0.962 & $\ast\ast$ \\
+            & 0.90 & 0.906 & 0.888 & 0.910 & $\ast\ast$ \\
+            & 0.80 & 0.814 & 0.770 & 0.834 & $\ast\ast$ \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\scalebox{1}{\begin{tabular}{cc}
+				\includegraphics[width=2.5in]{plots/bpNregular.pdf}&\includegraphics[width=2.5in]{plots/bpNirregular.pdf}\\
+                (a) & (b)  \\
+		\end{tabular}}
+	\end{center}
+\caption{
+统计量 $ D\left( \hat{F}_{n',h},F \right) $ 的箱线图.
+(a) 情形I, 矩形区域
+(b) 情形II, 不规则区域
+}
+	\label{Fig:bpN01}
+\end{figure}
+
+%%%%%% distribution figures: Normal %%%%%%%
+\begin{figure}[H]
+	\begin{center}
+		\scalebox{1}{\begin{tabular}{cc}
+				\includegraphics[width=2.6in]{plots/5000NormalF-regular.pdf}
+                &\includegraphics[width=2.6in]{plots/250000NormalF-regular.pdf}\\
+                (a)  & (b)  \\
+                \includegraphics[width=2.6in]{plots/5000NormalF.pdf}
+                &\includegraphics[width=2.6in]{plots/250000NormalF.pdf}\\
+                (c) & (d)  \\
+		\end{tabular}}
+	\end{center}
+\caption{
+不同分布的比较, 以及$\hat{F}_{n',h}$的光滑99\%同时置信带: (a) 情形~I, $(100,50)$; (b) 情形~I, $(500,500)$; (c) 情形~II, $(100,50)$; (d) 情形~II, $(500,500)$
+}
+
+	\label{Fig:NormalF}
+\end{figure}
+
+
+\section{实际数据分析}
+\subsection{全球大气二氧化碳浓度}
+
+本节构建全球大气二氧化碳(CO$_2$)浓度数据的边际误差分布的同时置信带. 数据来自全球大气二氧化碳浓度模拟网格, 覆盖全球范围, 从 $180^{\circ}$W 到 $180^{\circ}$E、从 $60^{\circ}$S 到 $88^{\circ}$N , 空间分辨率为 $2.5^{\circ} \times 2^{\circ}$. 该公共数据集由 http://www.geodoi.ac.cn 提供; 参见文献 \cite{hou2021global}, 包含 1992 年至 2020 年间全球范围内的年度平均 CO$_2$ 浓度 (单位：ppm), 共计 $n = 10{,}800$ 个空间网格点.
+
+图~\ref{Fig:CO2}(a) 给出了观测到的全球 CO$_2$ 浓度，而图~\ref{Fig:CO2}(b) 展示了基于二元样条方法得到的趋势面估计，其刻画了全球尺度上的空间变化结构. 区域被划分为 72 个三角形、49 个顶点, 与图~\ref{Fig:trigulation-sim} 类似. 空间子采样的间距参数选取 \( n' = 504 \) 个观测位置用于基于 KDE 的边际误差分布估计.
+
+\begin{figure}[H] 
+  \hspace{-0.08in}
+  % 第一行：两个子图并排
+  \begin{subfigure}[b]{0.45\textwidth} 
+    \includegraphics[width=2.7in]{plots/Y_CO2.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (a)}
+    \label{fig:sub1}
+  \end{subfigure}
+  \hspace{0.2in}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=2.7in]{plots/ghatCO2.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (b)}
+    \label{fig:sub2}
+  \end{subfigure}
+  \vspace{-0.1in} % 保持原有的垂直间距
+  
+  % 第二行：两个子图并排
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=2.7in]{plots/normalfit95.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (c)}
+    \label{fig:sub3}
+  \end{subfigure}
+  \hspace{0.2in}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=2.7in]{plots/normalfit0.004.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (d)}
+    \label{fig:sub4}
+  \end{subfigure}
+
+\caption{
+全球 CO$_2$ 数据: 
+(a) $\{Y_{\mathbf{i}}\}_{\mathbf{i}\in\mathcal{I}_n}$ , 20 年平均CO$_2$ 浓度;
+(b) 趋势的二元样条曲面估计 $\hat{g}$;
+(c) oracle KDE $\hat{F}_{n',h}$ 及其光滑oracle 95\% SCB;
+(d) oracle KDE $\hat{F}_{n',h}$ 及其光滑oracle 99.6\% SCB, 两者均与校正后的正态分布进行对比
+}
+ \label{Fig:CO2}
+\end{figure}
+为了评估环境统计建模中常见分布假设的合理性, 将所提出的 SCB 方法应用于非参数双变量回归所得残差分析. 以往研究如文献\cite{pearman1986global}常假设误差服从高斯分布, 但该假设在全球区域上的适用性仍需严谨的诊断性检验.
+
+设原假设 $H_0$ 为：残差序列 \( \{ \hat{Z}_{\mathbf{i}'} \}_{\mathbf{i}' \in \mathcal{I}_{n'}} \) 的边际分布服从正态分布
+\(F_0(z) = \Phi(z /\sigma_0),\) 其中 \( \Phi \) 为标准正态分布函数, 且 \( \sigma_0^2 = 3.219 \). 为确保在 $H_0$ 下的可比性, 利用线性标准化处理候选分布, 使其均值和方差与残差的样本均值及方差保持一致.
+
+图~\ref{Fig:CO2}(c) 表明, $100(1-0.05)\%$ 的 oracle SCB 未能完全覆盖正态分布函数; 而图~\ref{Fig:CO2}(d) 显示, 在 $H_0$ 下给定的正态分布函数恰好落入置信水平为 $100(1-0.004)\%$ 的 oracle SCB 内部. 据此, 在显著性水平 $p = 1 - 0.996 = 0.004$ 下拒绝正态性原假设. 该检验结果证实, 全球大气 CO$_2$ 监测数据中的空间误差边际分布显著偏离正态分布模型, 进一步体现了采用非参数建模方法刻画误差分布的必要性.
+
+\subsection{黑海表面温度}
+
+在物理海洋学研究中, 评估随机过程的分布性质具有重要意义. 针对黑海(black sea, BS)区域, 应用本文所提 SCB 方法来检验海表温度(sea surface temperature, SST)场中的空间误差的边际分布. 黑海作为位于欧亚大陆之间的大西洋边缘海, 其地理空间范围界定为 \([26.8^{\circ}\text{E},\,42.2^{\circ}\text{E}] \times [40.5^{\circ}\text{N},\,47.6^{\circ}\text{N}]\). 图~\ref{Fig:blacksea_SST}(a)-(b) 展示了 2020 年 12 月 9 日与 24 日 00{:}30 UTC 时刻的不规则黑海海域的 SST 观测位置分布. 相关 SST 数据源自 Copernicus 海洋环境监测服务https://marine.copernicus.eu, 水平空间分辨率为 \(1/12^{\circ}\), 采样深度层设定为 0.494 m, 如图~\ref{Fig:points}(a) 所示. 覆盖该海域的所有有效观测网格点共计 6,583 个.
+
+\begin{figure}[H] 
+  \centering
+  % 第一行：两个子图并排
+  \begin{subfigure}[b]{0.45\textwidth} 
+    \centering
+    \includegraphics[width=2.6in]{plots/Npoints.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (a)}
+    \label{fig:sub1}
+  \end{subfigure}
+  \hspace{-0.2in}% 保持原有的负间距
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=2.6in]{plots/N1points.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (b)}
+    \label{fig:sub2}
+  \end{subfigure}
+
+  \vspace{0.1in} % 保持原有的垂直间距
+  
+  % 第二行：两个子图并排
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=2.6in]{plots/N2points.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (c)}
+    \label{fig:sub3}
+  \end{subfigure}
+  \hspace{-0.2in}% 保持与第一行相同的负间距
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=2.6in]{plots/trigulation.pdf}
+    \parbox{\linewidth}{\centering \footnotesize (d)}
+    \label{fig:sub4}
+  \end{subfigure}
+
+\caption{
+(a) 黑海区域中观测温度的格点;
+(b) 趋势估计的子集 $\mathcal{I}_{n'}$;
+(c) 核密度估计的子集 $\mathcal{I}_{n''}$;
+(d) 黑海区域的三角剖分
+}
+  \label{Fig:points}
+\end{figure}
+
+集合 \(\mathcal{I}_{n'}\) 与 \(\mathcal{I}_{n''}\) 分别用于趋势估计与 KDE 分布估计, 其对应的位置选择如图~\ref{Fig:points}(b)-(c) 所示. 空间区域被三角剖分为 39 个三角形与 35 个顶点, 见图~\ref{Fig:points}(d).参数 \(T_n\)、\(n'\) 和 \(\theta\) 的取法与前一节的应用保持一致.
+
+为了考察黑海海表温度的短期变化, 本文比较了 12 月 9 日与 12月24 日的边际误差分布的 KDE 估计, 如图~\ref{Fig:blacksea_SST}(c)-(d) 所示. 主要发现可总结如下：
+\begin{enumerate}[(1)]
+    \item 所提出的光滑估计量 \(\hat{F}_{n',h}\) 与非光滑 EMDF \(\hat{F}_{n'}\) 的结果高度一致，表明光滑过程未引入显著偏差. 
+    \item 24 日的估计误差分布及其 $100(1-0.05)\%$ 与 $100(1-0.01)\%$ oracle SCBs 相较于 9 日, 呈现更尖锐的中心峰值与更厚的尾部，这意味着误差在均值附近更加集中, 同时极端 SST 偏差出现的概率更高.这些特征可能归因于冬季增强的大气强迫与垂向混合过程，从而提升了黑海海面温度的空间一致性，并同时产生局地异常; 参见文献\cite{baltaci2024spatiotemporal} 的相关讨论.
+\end{enumerate}
+
+\begin{figure}[H] 
+  \centering
+  % 第一行
+  \begin{subfigure}[b]{0.48\textwidth} % 稍微放大一点比例，总和不超过 1.0 即可
+    \centering
+    \includegraphics[width=\textwidth]{plots/heatmap09.pdf}
+    \caption{} % 留空或写标题，subcaption 会自动生成 (a)
+    \label{fig:sub1}
+  \end{subfigure}
+  \hfill % 使用 \hfill 自动填充中间空白，比固定 0.2in 更灵活
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{plots/heatmap24.pdf}
+    \caption{}
+    \label{fig:sub2}
+  \end{subfigure}
+  
+  \vspace{0.2in} % 行间距
+  
+  % 第二行
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{plots/blacksea_compar95.pdf}
+    \caption{}
+    \label{fig:sub3}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{plots/blacksea_compar99.pdf}
+    \caption{}
+    \label{fig:sub4}
+  \end{subfigure}
+
+  \caption{
+    黑海海表温度数据：
+(a) 2020年12月9日00:30的$\{Y_{\mathbf{i}}\}_{\mathbf{i}\in\mathcal{I}_n}$;
+(b) 2020年12月24日00:30的$\{Y_{\mathbf{i}}\}_{\mathbf{i}\in\mathcal{I}_n}$;
+(c) 2020年12月24日的“非光滑”EMDF$\hat{F}_{n'}$与KDE$\hat{F}_{n',h}$及其95\% 光滑同时置信带;
+(d) 2020年12月9日的“非光滑”EMDF$\hat{F}_{n'}$与KDE$\hat{F}_{n',h}$及其99\% 光滑同时置信带
+  }
+  \label{Fig:blacksea_SST}
+\end{figure}
+
+\chapterwithfancyheader{研究总结}\label{SEC: Conclusion}
+针对非平稳空间序列, 本文建立了用于边际误差分布的光滑核分布函数估计量, 通过去除双变量样条趋势项, 从理论上确立了该估计量在一致意义下的“默示有效性”, 并在此基础上进一步发展了渐近柯尔莫格洛夫-斯米尔诺夫型同时置信带理论. 通过对全球大气二氧化碳浓度和黑海表面温度数据的实证分析, 结果表明所提出的同时置信带方法在检验传统参数模型的偏离程度方面具有良好的实用价值.
+
+未来研究可朝向更具挑战性的空间变系数模型 (spatial varying coefficient models，SVCM) 拓展, 进一步探索SVCM中预测误差分布的估计问题. 已有文献 \cite{mu2018estimation},\cite{wang2020efficient}和\cite{mu2020spatial} 对此类模型的基础性质进行了系统研究. 结合相关文献建立更为精准的误差分布估计量, 这些结果将有助于构建响应变量的高精度预测区间. 这一拓展不仅能有效应对空间数据中普遍存在的结构非平稳性与空间异质性, 亦能进一步挖掘非参数推断方法在复杂地理信息系统与物理海洋学分析中的应用潜力.
+
+
+\backmatter
+\newpage
+%\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}  
+%\chapterwithfancyheader{参考文献}
+\bibliographystyle{unsrt}
+\normalem 
+\bibliography{reference}
+
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[EL]{附录}
+\fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{附录}
+\chapterwithfancyheader{附录}\label{SEC: proof}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\def\theequation{A.\arabic{equation}}
+\def\thesection{A}
+\renewcommand{\thelemma}{A.\arabic{lemma}} 
+
+本章节为罗列理论推导中用到的引理及其证明. 
+
+
+
+\begin{lem}[引理 A.4, \cite{yu2019estimation}]\label{Lemma:Gamma-Gammahat}
+在假设 (A7) 成立的条件下, 对于任意次数 \( d \geq 0 \) 的 Bernstein 基多项式 \( B_l(\boldsymbol{x}) \),  \( l \in \mathcal{L} \), 满足
+\(\Vert \bm{\Gamma} - \hat{\bm{\Gamma}}_{n} \Vert_{\infty} = \mathcal{O}_p\left(n^{-1/2} |\triangle|\right).\)
+\end{lem}
+
+\begin{lem}[定理 10.10, \cite{lai2007spline}]\label{Lemma:phi-g}
+    对于每一个 $\phi\in W^{\ell+1,\infty}(\Omega)$, 存在 $g\in\mathbb{S}_d^r(\triangle)$, 使得 
+    $$\left\Vert \nabla_{x_1}^{\alpha_1}\nabla_{x_2}^{\alpha_2}(\phi-g)\right\Vert_{\infty}\leq c\vert \triangle\vert^{\ell+1-\alpha_1-\alpha_2}\vert \phi\vert_{\ell+1,\infty,\Omega},$$
+    对所有满足 $0\leq \alpha_1+\alpha_2\leq \ell$ 的偏导数均成立.
+\end{lem}
+
+\begin{lem}\label{Lemma:BProperty}
+    存在常数 $0<c_1<c_2<+\infty$. 使得对于任何向量 $\bm{\gamma}^{\top} = (\gamma_l,l\in\mathcal{L})\in \mathbb{R}^{\vert\mathcal{L}\vert}$.
+    \begin{equation}\label{EQ:thenorm}
+    c_1\vert\triangle\vert^2\sum_{l\in\mathcal{L}}\vert\gamma_l\vert^2 \leq \left\Vert \sum_{l\in\mathcal{L}}\gamma_lB_l\right\Vert^2_2\leq c_2\vert\triangle\vert^2\sum_{l\in\mathcal{L}}\vert\gamma_l\vert^2.
+    \end{equation}
+    当 $n\to\infty$ 时. 以下性质成立：
+    \begin{align}
+        &\max_{l\in\mathcal{L}}\Vert B_l\Vert_2^2 = \mathcal{O}\left(\vert\triangle\vert^2\right),~ ~\max_{l\in\mathcal{L}}\Vert B_l\Vert_2^{-2} = \mathcal{O}\left(\vert\triangle\vert^{-2}\right),\label{EQ:Bthenorm}\\
+        &R_n = \sup_{g_1,g_2\in \mathbb{S}_{d}^{r}(\triangle)}\left\vert\frac{\left<g_1,g_2\right>_{n}-\left<g_1,g_2\right>}{\Vert g_1\Vert_2\Vert g_2\Vert_2}\right\vert = \mathcal{O}_p\left( n^{-1/2}\vert\triangle\vert^{-1}\left(\log n\right)^{1/2}\right) = {\scriptstyle{\mathcal{O}}_{p}}(1),\label{EQ:goodcondition}\\
+        &\max_{l\in\mathcal{L}}\Vert B_l\Vert_{2,n}^2 = \mathcal{O}(\vert\triangle\vert^2), ~ ~ \max_{l\in\mathcal{L}}\Vert B_l\Vert_{2,n}^{-2} = \mathcal{O}(\vert\triangle\vert^{-2}) \label{EQ:Bempnorm}.
+    \end{align}    
+\end{lem}
+\begin{proof}
+根据文献\cite{lai2007spline} 中定理 2.7 可知式\eqref{EQ:thenorm} 成立, 式 \eqref{EQ:Bthenorm}是式\eqref{EQ:thenorm}的一种特殊情况. 通过选择样条系数向量 $\bm{\gamma}$ 仅包含一个等于 1 的非零元得到. 公式 \eqref{EQ:goodcondition} 中的经验内积界限见于文献\cite{lai2013bivariate} 的引理 2.
+
+为了证明公式 \eqref{EQ:Bempnorm}. 注意到对于任何 $l \in \mathcal{L}$：
+\[
+\left\Vert B_l \right\Vert_{2,n}^2 
+\leq \left\Vert B_l \right\Vert_2^2 + R_n \times \left\Vert B_l \right\Vert_2^2 
+= \left\Vert B_l \right\Vert_2^2 \times (1 + R_n).
+\]
+对 $l \in \mathcal{L}$ 取最大值. 可得
+\[
+\max_{l \in \mathcal{L}} \left\Vert B_l \right\Vert_{2,n}^2 
+\leq \max_{l \in \mathcal{L}} \left\Vert B_l \right\Vert_2^2 \times (1 + R_n) 
+= \mathcal{O}(|\triangle|^2).
+\]
+
+类似地. 利用下界
+\[
+\left\Vert B_l \right\Vert_{2,n}^2 
+\geq \left\Vert B_l \right\Vert_2^2 - R_n \times \left\Vert B_l \right\Vert_2^2 
+= \left\Vert B_l \right\Vert_2^2 \times (1 - R_n),
+\]
+可以得到
+\[
+\max_{l \in \mathcal{L}} \left\Vert B_l \right\Vert_{2,n}^{-2} 
+\leq \max_{l \in \mathcal{L}} \left\Vert B_l \right\Vert_2^{-2} \times (1 - R_n)^{-1} 
+= \mathcal{O}(|\triangle|^{-2}),
+\]
+此处在 $R_n = {\scriptstyle{\mathcal{O}}_{p}}(1)$ 的假设下成立. 公式 \eqref{EQ:Bempnorm} 得证. 引理证毕.
+\end{proof}
+
+
+\begin{lem} \label{Lemma:Rnn''Gamman''Bnormn''}
+在假设 (A5) 成立的条件下, 存在常数 $c>0$. 使得当 $n$ 足够大时. 以下结论成立:
+  \begin{align}
+      & R_{n,n''} = \sup_{g_1,g_2\in\mathbb{S}_{d}^{r}(\triangle)}\left\vert\frac{\left<g_1,g_2\right>_{n}-\left<g_1,g_2\right>_{n''}}{\Vert g_1\Vert_2\Vert g_2\Vert_2}\right\vert\leq cT_n^{-1},\label{EQ:g''goodcondition}\\
+      &\left\Vert \hat{\bm{\Gamma}}^{-1}_{n''}\right\Vert_{\infty} \leq 2C'\vert\triangle\vert^{-2},\label{EQ:Gammahat}\\
+      &\sup_{\boldsymbol{x}\in \Omega}\sup_{ \boldsymbol{\alpha}\in\mathbb{R}^{\vert\mathcal{L}\vert}}\Vert\boldsymbol{\alpha}\Vert_{\infty}^{-1}\vert \mathbf{B}(\boldsymbol{x})^{\top}\mathbf{Q}_2\hat{\bm{\Gamma}}_{n''}^{-1}  \boldsymbol{\alpha} \vert \leq C'(d+1)(d+2)\vert\triangle\vert^{-2}.\label{EQ:BV}
+  \end{align}
+  且当 $n\to\infty$ 时,
+   \begin{align}
+       \max_{l\in\mathcal{L}}\Vert B_l\Vert_{2,n''}^2 = \mathcal{O}\left(\vert\triangle\vert^2\right),~\max_{l\in\mathcal{L}}\Vert B_l\Vert_{2,n''}^{-2} = \mathcal{O}\left(\vert\triangle\vert^{-2}\right). \label{EQ:B''empnorm}
+   \end{align}
+\end{lem}
+\begin{proof}
+      对于任意 $g_1(\boldsymbol{x}) = \sum_{l\in\mathcal{L}}\lambda_l B_l(\boldsymbol{x})$, $g_2(\boldsymbol{x}) = \sum_{l'\in\mathcal{L}}\mu_{l'} B_{l'}(\boldsymbol{x})$, 有
+      \begin{align*}
+          \vert\left\langle g_1,g_2\right\rangle_{n''}-\left\langle g_1,g_2\right\rangle _{n}\vert 
+          =&\left\vert \frac{1}{n''}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}g_1(\boldsymbol{x}_{\mathbf{i}''})g_2(\boldsymbol{x}_{\mathbf{i}''})-\frac{1}{n}\sum_{\mathbf{i}\in\mathcal{I}_n}g_1(\boldsymbol{x}_{\mathbf{i}})g_2(\boldsymbol{x}_{\mathbf{i}})\right\vert\\
+          \le & \sqrt{\sum_{l\in \mathcal{L}}\lambda^2_{l}}\sqrt{\sum_{l'\in \mathcal{L}}\mu^2_{l'}} \max_{l,l' \in\mathcal{L}}\left \vert\left<B_l,B_{l'}\right>_{n''}-\left<B_l,B_{l'}\right>_{n}\right\vert. 
+      \end{align*}
+     Cauchy-Schwartz 不等式与式 (\ref{EQ:Bempnorm}) 意味着
+     \begin{align*}
+         \max_{l,l'\in\mathcal{L}}\left\vert\left<B_l,B_{l'}\right>_{n}\right\vert\leq \max_{l\in\mathcal{L}}\Vert B_l\Vert^2_{2,n} = \mathcal{O}(\vert\triangle\vert^2),
+     \end{align*}
+     因此, 对于足够大的 $n$, 有
+     \begin{align*}
+         \left\vert \left<B_l,B_{l'}\right>_{n''}-\left<B_l,B_{l'}\right>_{n}\right\vert
+         \leq & \left\vert \left<B_l,B_{l'}\right>_{n''} - n^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_l(x_{\mathbf{i}''})B_{l'}(x_{\mathbf{i}''})\right\vert\\ 
+         &+ \left\vert n^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}B_l(x_{\mathbf{i}'})B_{l'}(x_{\mathbf{i}'})\right\vert\\
+         \leq & C_d\vert\triangle\vert^2 T_n^{-1}.
+     \end{align*}     
+     同时, 根据式 (\ref{EQ:thenorm})可得
+     $$\Vert g_1\Vert_2^{-1}\Vert g_2\Vert_2^{-1} \leq c_1 \left[\left(\sum_{l\in\mathcal{L}}\lambda_l^2\right)^{1/2}\left(\sum_{l'\in\mathcal{L}}\mu_{l'}^2\right)^{1/2}\right]^{-1}\vert \triangle\vert^{-2}.$$
+     从而,
+     \begin{align*}
+         R_{n,n''} = \sup_{g_1,g_2\in\mathbb{S}_{d}^{r}(\triangle)}\left\vert\frac{\left<g_1,g_2\right>_{n}-\left<g_1,g_2\right>_{n''}}{\Vert g_1\Vert_2\Vert g_2\Vert_2}\right\vert\leq C_d T_n^{-1}.
+     \end{align*}
+
+式\eqref{EQU:hatGammalambdan}的$\hat{\bm{\Gamma}}_{n''}$ 和式\eqref{EQU:hatGammalambdan''}的$\hat{\bm{\Gamma}}_{n}$均为块对角矩阵, 每一行最多包含 $(d+1)(d+2)/2$ 个非零元. 因此,
+\[
+\left\Vert \hat{\bm{\Gamma}}_{n} - \hat{\bm{\Gamma}}_{n''}\right\Vert_{\infty} 
+\leq C \, \vert\triangle\vert^2 T_n^{-1}\frac{(d+1)(d+2)}{2}.
+\]
+运用引理 \ref{Lemma:Gamma-Gammahat} 得到
+\[
+\left\Vert \bm{\Gamma} - \hat{\bm{\Gamma}}_{n''}\right\Vert_{\infty} 
+\leq \left\Vert \bm{\Gamma}- \hat{\bm{\Gamma}}_{n}\right\Vert_{\infty} 
++ \left\Vert \hat{\bm{\Gamma}}_{n} - \hat{\bm{\Gamma}}_{n''}\right\Vert_{\infty} 
+\leq C'\vert\triangle\vert^2T_n^{-1}.
+\]
+由于 $\left\Vert\bm{\Gamma}^{-1}\right\Vert \le C \, \vert\triangle\vert^{-2}$, 对于足够大的 $n$ 及任意向量 $\boldsymbol{\alpha}$, 有
+\begin{align*}
+\left\Vert \hat{\bm{\Gamma}}_{n''}\boldsymbol{\alpha}\right\Vert_{\infty}
+&\geq \Vert\bm{\Gamma}\boldsymbol{\alpha}\Vert_{\infty}
+- \left\Vert \bm{\Gamma}\boldsymbol{\alpha} - \hat{\bm{\Gamma}}_{n''}\boldsymbol{\alpha}\right\Vert_{\infty} \\
+&\geq \tfrac{1}{2}C'^{-1}\vert\triangle\vert^2\Vert\boldsymbol{\alpha}\Vert_{\infty}.
+\end{align*}
+由此得 $\left\Vert \hat{\bm{\Gamma}}^{-1}_{n''}\right\Vert \leq 2C' \, \vert\triangle\vert^{-2}$.
+
+接下来, 注意到对于任何 $\boldsymbol{x} \in \Omega$. 向量 $\mathbf{B}(\boldsymbol{x})$ 最多包含 $(d+1)(d+2)/2$ 个非零元素, 且每个元素均在 $[0,1]$ 范围内. 因此
+\begin{align*}
+\left\Vert \mathbf{B}(\boldsymbol{x})^{\top}\mathbf{Q}_2\hat{\bm{\Gamma}}_{n''}^{-1}\boldsymbol{\alpha}\right\Vert_{\infty}
+&\leq C'(d+1)(d+2)\vert\triangle\vert^{-2}\Vert\boldsymbol{\alpha}\Vert_{\infty}.
+\end{align*}
+结论 (\ref{EQ:B''empnorm}) 直接由 (\ref{EQ:Bempnorm}) 和 (\ref{EQ:g''goodcondition}) 得出, 证毕.
+\end{proof}
+
+令 $a_{n'} = n'+h$，并将区间 $[-a_{n'}, a_{n'}] $ 划分为等距网格点 $-a_{n'} = z_1 < \dots < z_{L_n+1} = a_{n'}$，其中 $L_n = n^2$。定义：
+\begin{align}\label{EQ:Lamda1}
+    &\Lambda_1 = \left\vert \mathcal{W}_{n'}(-n')\right\vert+ \left\vert \mathcal{W}_{n'}(n')\right\vert, \\ 
+    &\Lambda_2 = \max_{1\leq l\leq L_n}\left\vert \mathcal{W}_{n'}(z_l + h) - \mathcal{W}_{n'}(z_l-h)\right\vert. \label{EQ:Lamda2}
+\end{align}
+\begin{lem}\label{Lemma:g_h}
+    在假设 (A1), (A3)-(A4) 和 (A6)成立的条件下，对于任何 $g\in L^{\infty}(\mathbb{R})\cap C^{(0,1)}(\mathbb{R})$，有
+    \begin{align}\label{EQ:g_h}
+        &\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert \notag\\
+        \leq& \frac{2a_{n'}}{h^2L_{n}}\Vert g\Vert_{0,1} + \Vert g\Vert_{\infty}h^{-1}\left\{\max \left( M_{2+\delta}n'^{-(2+\delta)},2hC_f \right ) + 2\Delta_n + \max\left({\Lambda_1},{\Lambda_2}\right) n'^{-1/2}\right\},
+    \end{align}
+    且当 $n\to\infty$ 时，
+    $$ \Lambda_1 = \mathcal{O}_{p}\left(\left(n'^{-2-\delta}+\rho^{T_n}\right)^{1/2}\right),~ \Lambda_2 = \mathcal{O}_{a.s.}\left(\left(h+\rho^{T_n}\right)^{1/2}\left(\log n\right)^{1/2}\right).$$
+\end{lem}
+\begin{proof}
+首先将 $\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}' \in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert$ 分解为以下两项：
+\begin{align*}
+     &\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}' \in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert\\
+     \leq& \max\left(\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert,
+    \sup_{\vert z\vert\in\left[0,a_{n'}\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert\right).
+\end{align*}
+
+一方面，
+\begin{align*}
+    &\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert  \\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\left\{F_{n'}(-a_{n'}+h)+1-F_{n'}(a_{n'}-h)\right\} \notag\\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\left\{F(-n')+1-F(n')\right\} + \frac{\Vert g\Vert_{\infty}}{h}\left\vert\left\{F_{n'}(-n')-F(-n')\right \}-\left \{F_{n'}(n')-F(n')\right\} \right\vert,
+\end{align*}
+因此，根据 (\ref{EQ:gaussianprocess}) 可得：
+\begin{equation} \label{DEF:Gaussian}
+\Delta_n=||F_{n'}(\cdot)-F(\cdot)-n'^{-1/2}\mathcal{W}_{n'}(\cdot)||_{\infty} =\mathcal{O}_{a.s.}\left(n'^{-1/2}\left\{\log (n'^{1/2})\right\}^{-\alpha}\right).
+\end{equation}
+
+结合 $\Delta_n$ (\ref{DEF:Gaussian}) 与 $\Lambda_1$ (\ref{EQ:Lamda1}) 的定义：
+\begin{align} \label{EQ:Situ1}
+    \sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert \leq \frac{\Vert g\Vert_{\infty}}{h}\left\{M_{2+\delta}n'^{-(2+\delta)} + 2\Delta_n + \frac{\Lambda_1}{\sqrt{n'}}\right\}.
+\end{align}
+
+另一方面, 可以得到：
+\begin{align} \label{EQ:Situ2}
+    &\sup_{z\in\left[-a_{n'},a_{n'}\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert\leq &\Vert g\Vert_{\infty}h^{-1}\left\{2hC_f + 2\Delta_n + \frac{\Lambda_2}{\sqrt{n'}}\right\} + \frac{2a_{n'}}{h^2L_{n'}}\Vert g\Vert_{0,1}.
+\end{align}
+结合 (\ref{EQ:Situ1}) 和 (\ref{EQ:Situ2}), 公式 (\ref{EQ:g_h}) 得证.
+
+接着, 结合式(\ref{EQU:cov})可得：
+\begin{align*}
+    \Lambda_1 = \left\vert \mathcal{W}_{n'}(-n')\right\vert+ \left\vert \mathcal{W}_{n'}(n')\right\vert = \mathcal{O}_{p}\left(\left(n'^{-2-\delta}+\rho^{T_n}\right)^{1/2}\right).
+\end{align*}
+根据 \cite{wang2022oracle} 中的引理 A.7, 对正态变量 $\mathcal{W}_{n'}(z_l+h) - \mathcal{W}_{n'}(z_l-h)$ 进行估计：
+\begin{align*}
+    \Lambda_2 = \mathcal{O}_{a.s.}\left(\log^{1/2}(L_n)\times(2hC_f+4C_{\rho}{\rho}^{T_n})^{1/2}\right) = \mathcal{O}_{a.s.}\left(\left(h+\rho^{T_n}\right)^{1/2}\left(\log n\right)^{1/2}\right).
+\end{align*}
+因此, 引理证毕.
+\end{proof}
+
+
+\begin{lem} \label{Lemma:order}
+    (i) 在假设 (A2)--(A4) 与 (A6) 成立的条件下, 有
+    \begin{align}
+        & h^{-3}\vert \triangle \vert ^{3(\ell+1)} = {\scriptstyle{\mathcal{O}}}(n'^{-1/2}),\label{EQ:h^-3delta^3d+3}\\
+        & h^{-1} \vert \triangle \vert ^{2(\ell+1)} = {\scriptstyle{\mathcal{O}}}(n'^{-1/2}), \notag\\ 
+        & h^{-3}\vert \triangle \vert ^{-3} n''^{-3/2} \left(\log n \right)^{3/2} = {\scriptstyle{\mathcal{O}}}(n'^{-1/2}),\label{EQ:h^-3delta^-3} \\ 
+        & h^{-1}\vert \triangle \vert^{-1}n''^{-1}
+        \log n = {\scriptstyle{\mathcal{O}}}(n'^{-1/2}),\notag\\
+        & \vert\triangle \vert^{\ell+1}= {\scriptstyle{\mathcal{O}}}(n'^{-1/2}), \label{EQ:delta^d+1}\\
+        & \vert\triangle\vert^{-1} \left(n'/n''\right)^{1/2}\sqrt{\log n}\to 0.\label{EQ:delta^-1n'/n''}
+    \end{align}
+    (ii) 在假设 (A3)、(A4) 与 (A6) 成立的条件下, 存在常数 $\eta>0$ 与整数$\nu>(3/2+2t)(1-\theta)+\eta$, 使得对任意 $\delta>0$, 取$D_{n''}=(n'')^{\eta}$, $G_n=n^{\nu}$, $a_{n'}=n'+h$, 下列条件成立：
+    \begin{align}
+        & \sum_{n=1}^{\infty} n''D_{n''}^{-(2+\delta)} < +\infty, \quad D_{n''}^{-(1+\delta)} n'^{1/2} \to 0,\label{EQ:Dn''order}\\
+        & D_{n''}(n'')^{-1/2}\vert\triangle\vert^{-1}\sqrt{\log n} \to 0, \quad a_{n'}n'^{1/2}D_{n''}h^{-2}G_n^{-1}\to 0.\notag
+    \end{align}
+\end{lem}
+
+下面两个引理分别在 $\vert z\vert > a_{n'}$ 和 $\vert z\vert \le a_{n'}$ 的情形下,
+为如下项提供一致上界:
+\begin{align*}
+        \max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert.
+\end{align*}
+\begin{lem} \label{Lemma:KB1}
+    在假设 (A1)--(A6) 成立的前提下, 有
+    \begin{align*}
+        &\sup_{\vert z\vert > a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert\\
+        &={\scriptstyle{\mathcal{O}}}_p\left(n'^{-1/2}\vert\triangle\vert^2\right).
+    \end{align*}
+\end{lem}
+\begin{proof}
+    根据引理 \ref{Lemma:g_h} 和 \ref{Lemma:BZ}, 有
+        \begin{align*}
+            &\sup_{ z < -a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert\\
+            \leq &\sup_{ z < -a_{n'}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})\right\vert 
+            \times \max_{l\in\mathcal{L}} \left\vert n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert\\
+            \leq &Sh^{-1}\Vert K\Vert_{\infty}\mathcal{O}_p\left((n'')^{-1/2}\vert\triangle\vert(\log n)^{1/2}\right),
+        \end{align*}
+        其中
+        \begin{align*}
+            S = n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}I\left(Z_{\mathbf{i}'}\leq h-a_{n'}\right)
+            = \mathrm{P}(Z_{\mathbf{1}}\leq h-a_{n'})+\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}\varsigma _{\mathbf{i}'},
+        \end{align*}
+        并且
+        \[
+        \varsigma _{\mathbf{i}'} = n'^{-1}\left[I\left(Z_{\mathbf{i}'}\leq h-a_{n'}\right) - \mathrm{P}\left(Z_{\mathbf{1}}\leq h-a_{n'}\right)\right].
+        \]
+
+        由于 $h-a_{n'} = -n'$, 由 Markov 不等式可得
+        \begin{align*}
+            \mathrm{P}(Z_\mathbf{1}\leq h-a_{n'}) \leq M_{2+\delta}n'^{-(2+\delta)}.
+        \end{align*}
+        注意到 $\mathrm{E}(\varsigma_{\mathbf{i}'}) = 0$, 且
+        \begin{align*}
+            \mathrm{E}(\varsigma_{\mathbf{i}'}^2) 
+            =&\, n'^{-2}\mathrm{P}(Z_{\mathbf{1}}\leq h-a_{n'})
+            \left\{1-\mathrm{P}(Z_{\mathbf{1}}\leq h-a_{n'})\right\}\\
+            \leq &\, n'^{-2}M_{2+\delta}n'^{-(2+\delta)}
+            = M_{2+\delta}n'^{-(4+\delta)}.
+        \end{align*}
+        因此,
+        \begin{align*}
+     \mathrm{E}\left(\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}\varsigma_{\mathbf{i}'}\right)^2
+     \leq M_{2+\delta}n'^{-(3+\delta)}, \quad
+     \sum_{\mathbf{i}'\in\mathcal{I}_{n'}}\varsigma_{\mathbf{i}'}
+     = \mathcal{O}_p\left(n'^{-(3+\delta)/2}\right),
+        \end{align*}
+        从而
+        \[
+        S = \mathcal{O}_p\left(n'^{-(3+\delta)/2}+n'^{-(2+\delta)}\right)
+        = \mathcal{O}_p\left(n'^{-(3+\delta)/2}\right).
+        \]
+
+        因此, 结合式 (\ref{EQ:h^-3delta^-3}), 可得
+       \begin{align}
+           &\sup_{ z < -a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)\right\vert={\scriptstyle{\mathcal{O}}}_p\left(\vert\triangle\vert^2n'^{-1/2}\right).\label{EQ:bound}
+       \end{align}
+       同理, 式 (\ref{EQ:bound}) 对 $z\in\left(a_{n'},+\infty\right)$ 也成立. 因此, 引理得证.
+    \end{proof}
+
+\begin{lem}\label{Lemma:KB}
+    在假设 (A1)--(A6) 成立的前提下, 有如下结论成立:
+    \begin{align}
+        &\sup_{\vert z\vert\leq a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}\right\vert ={\scriptstyle{\mathcal{O}}}_p\left(n'^{-1/2}\vert\triangle\vert^2\right).\notag
+    \end{align}
+\end{lem}
+
+\begin{proof}
+    对于任意 $l\in\mathcal{L}$, $z\in\mathbb{R}$, 定义变量 $\left\{ \zeta_{\mathbf{i}'',l}\right\}$ 为
+    \begin{align*}
+        \zeta_{\mathbf{i}'',l} = \zeta_{\mathbf{i}'',l}(z) = n''^{-1}B_{l}\left(x_{\mathbf{i}''}\right)n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})Z_{\mathbf{i}''},
+    \end{align*}
+   易得,
+    \begin{align*}
+        \sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l}=n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_{h}\left(z-Z_{\mathbf{i}'}\right)n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)Z_{\mathbf{i}''}.
+    \end{align*}
+    应用Bernstein不等式, 将误差项 $\left\{ Z_{\mathbf{i}''}\right\}$ 分解如下:
+    \begin{align*}
+        Z_{\mathbf{i}''} = Z_{\mathbf{i}'',1}^{D_{n''}} + Z_{\mathbf{i}'',2}^{D_{n''}} + \mu_{\mathbf{i}''}^{D_{n''}}, 
+    \end{align*}
+    其中 $D_{n''} = \left(n''\right)^{\eta},\eta>0$. 尾部项 (tail part) 为 $Z_{\mathbf{i}'',1}^{D_{n''}} = Z_{\mathbf{i}''}I\left\{\vert Z_{\mathbf{i}''}\vert>D_{n''}\right\}$, 截断项 (truncated part) 为 $Z_{\mathbf{i}'',2}^{D_{n''}} = Z_{\mathbf{i}''}I\left\{\vert Z_{\mathbf{i}''}\vert\leq D_{n''}\right\} - \mu_{\mathbf{i}''}^{D_{n''}}$, 均值项 (mean part) 为 $   \mu_{\mathbf{i}''}^{D_{n''}} = \mathrm{E}\left[Z_{\mathbf{i}''}I\left\{\vert Z_{\mathbf{i}''}\vert\leq D_{n''}\right\}\right].$
+
+    相应地, 有
+    \begin{align*} 
+        \sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l} =  \sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l,1}+\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l,2}+\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\mu_{\mathbf{i}'',l},
+    \end{align*}
+    其中
+    \begin{align*}
+        \zeta_{\mathbf{i}'',l,1} &= n''^{-1}B_{l}\left(x_{\mathbf{i}''}\right)n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})Z_{\mathbf{i}'',1}^{D_{n''}},\\
+        \zeta_{\mathbf{i}'',l,2}& = n''^{-1}B_{l}\left(x_{\mathbf{i}''}\right)n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})Z_{\mathbf{i}'',2}^{D_{n''}},\\
+        \mu_{\mathbf{i}'',l}& = n''^{-1}B_{l}\left(x_{\mathbf{i}''}\right)n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})\mu_{\mathbf{i}''}^{D_{n''}}.
+    \end{align*}
+    注意到 $\mathrm{E}(Z_{\mathbf{i}''}) = 0$. 则 $\mu_{\mathbf{i}''}^{D_{n''}} = -\mathrm{E}\left[Z_{\mathbf{i}''}I \left\{\vert Z_{\mathbf{i}''}\vert>D_{n''}\right\}\right]$. 
+    
+    首先, 由 Markov 不等式和假设 (A4) 可得:
+    $$\left\vert \mu_{\mathbf{i}''}^{D_{n''}}\right \vert=\left \vert\mathrm{E}\left[Z_{\mathbf{i}''}I\left\{\vert Z_{\mathbf{i}''}\vert>D_{n''}\right\}\right]\right\vert \leq M_{2+\delta}D_{n''}^{-(1+\delta)}.$$
+    即 $\mu_{\mathbf{i}''}^{D_{n''}}$ 被 $D_{n''}^{-(1+\delta)}$ 一致界定. 因此, 结合引理 \ref{Lemma:BProperty} 和 \ref{Lemma:g_h}. 有
+    \begin{align}\label{EQ:mul}
+        &\sup_{z\in\mathbb{R}}\max_{l\in\mathcal{L}}\left\vert \sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\mu_{\mathbf{i}'',l}\right\vert\not \leq \mathcal{O}_p\left(\left \vert\triangle\right \vert^2D_{n''}^{-(1+\delta)}\right).
+    \end{align}
+
+    其次, 尾部项 $Z_{\mathbf{i}'',1}^{D_{n''}}$ 几乎处处消失. 因为
+    \begin{align*}
+    \sum_{n=1}^{\infty} \mathrm{P}\left\{\max_{\mathbf{i}''\in\mathcal{I}_{n''}}\vert Z_{\mathbf{i}''}\vert > D_{n''}\right\}\leq M_{2+\delta}\sum_{n=1}^{\infty}n''D_{n''}^{-(2+\delta)}<+\infty.
+    \end{align*}
+    Borel-Cantelli 引理确保了
+    $$\mathrm{P}\left\{\boldsymbol{x}\left|\exists\: N_{1}\left(\boldsymbol{x}\right),\max\limits_{\mathbf{i}''\in\mathcal{I}_{n''}}\left|Z_{\mathbf{i}''}\left(\boldsymbol{\mathbf{x}}\right)\right|\leq D_{n''}, \text{对于}\:n>N_{1}\left(\boldsymbol{x}\right)\right\}=1.\right.$$
+    这表明
+    $$\mathrm{P}\left\{\boldsymbol{x}\left|\exists\:N_{1}\left(\boldsymbol{x}\right),Z_{\mathbf{i}'',1}^{D_{n''}}=0, \mathbf{i}''\in\mathcal{I}_{n''}, \text{对于} \:n\geq N_{1}\left(\boldsymbol{x}\right)\right\}=1.\right.$$
+    由此得
+    \begin{align}\label{EQ:xi1}
+    \sup_{z\in\mathbb{R}}\max_{l\in\mathcal{L}}\left\vert\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l,1}\right\vert = U_{a.s.}\left(N^{-k}\right),~k\geq 1.
+    \end{align}
+
+    最后, 证明截断项之和的界限. 易证其满足 Cram{\'e}r 条件. 通过对区间 $[-a_{n'}, a_{n'}]$ 进行等距离散化并利用 Bernstein 不等式. 结合引理 \ref{Lemma:Bernstein} 与引理\ref{Lemma:order}, 可以得到
+    \begin{align}\label{EQ:xi2}
+        &\sup_{\vert z\vert\leq a_{n'}}\max_{l\in\mathcal{L}}\left\vert\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}\zeta_{\mathbf{i}'',l,2}(z)\right\vert =\mathcal{O}_p\left(n''^{-1/2}\vert\triangle\vert\sqrt{\log{n}} + a_{n'}D_{n''}\vert\triangle\vert^{2}h^{-2}G_{n}^{-1}\right).
+    \end{align}
+    综合式(\ref{EQ:mul}), 式(\ref{EQ:xi1}) 和式(\ref{EQ:xi2}), 有
+    \begin{align*}
+        &\sup_{\vert z\vert\leq a_{n'}}\max_{l\in\mathcal{L}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}K_h(z-Z_{\mathbf{i}'})n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_{l}\left(x_{\mathbf{i}''}\right)\right\vert
+        = {\scriptstyle \mathcal{O}}_p\left(n'^{-1/2}\vert\triangle\vert^2\right).
+    \end{align*}
+    证毕.
+\end{proof}
+
+
+
+\begin{lem}\label{Lemma:BZ}
+    在假设 (A3)--(A6) 成立的前下, 有如下结论成立:
+    \begin{align*}
+       \left\Vert n''^{-1}\tilde{\mathbf{B}}^{\top}\mathbf{Z}\right\Vert_{\infty} =& \max_{l \in \mathcal{L}}\left\vert n''^{-1}\sum_{\mathbf{i}''\in\mathcal{I}_{n''}}B_l(x_{\mathbf{i}''})Z_{\mathbf{i}''}\right\vert
+        =\mathcal{O}_p\left(n''^{-1/2}\vert\triangle\vert(\log n)^{1/2}\right).
+    \end{align*}
+\end{lem}
+\begin{proof}
+    该引理的证明同引理\ref{Lemma:KB}的证明, 此处省略.
+\end{proof}
+
+\begin{lem}[推论1, \cite{Strittmatter1990}] \label{Lemma:Gaussian}
+设 $\{Z_{\mathbf{i}}\}_{\mathbf{i}\in\mathbb{Z}^2}$ 是定义在概率空间 $\left(\Omega,\mathcal{F},\mathrm{P}\right)$ 上的严格平稳随机场, 其取值于 $[-\infty,+\infty]$, 且具有公共分布 $\mathrm{P}'=\mathcal{L}\left(Z_{\mathbf{0}}\right)$. 假设 $\{Z_{\mathbf{i}}\}_{\mathbf{i}\in\mathbb{Z}^2}$ 满足假设 (A3). 则存在一族定义在 $\left(\Omega,\mathcal{F},\mathrm{P}\right)$ 上、指标集为 $\mathcal{C}$ 的高斯过程 $\{W_{\mathbf{i}}\}_{\mathbf{i}\in\mathbb{N}^2}$, 使得 $\text{E} W_{\mathbf{1}}(C) = 0$, 且  
+$$\mathrm{E}\left(W_{\mathbf{1}}(C)W_{\mathbf{1}}(D)\right) = \sum_{\mathbf{i}\in\mathbb{Z}^2}\left(\mathrm{P}(Z_{\mathbf{0}}\in C,Z_{\mathbf{i}}\in D) - \mathrm{P}(Z_{\mathbf{0}}\in C)\mathrm{P}(Z_{\mathbf{0}}\in D)\right)$$ 
+对任意 $C,D\in\mathcal{C}$ 成立. 此外, 对某个 $\alpha>0$, 有
+$$\sup_{C,D\in\mathcal{C}}\left\vert \sum_{\mathbf{i}\in nC}\left(\mathbf{1}_D\left\{Z_{\mathbf{i}}\le z\right\} - \mathcal{L}(D) - W_{\mathbf{i}}(D)\right)\right\vert\ll n(\log n)^{-\alpha}, \quad a.s.$$
+\end{lem}
+
+    根据引理 \ref{Lemma:Gaussian}, 存在定义在 $[-\infty,+\infty]$ 上的零均值高斯过程 $\mathcal{W}$, 其协方差函数为
+$$\text{Cov} (z,z')=\frac{1}{n'}\sum_{\mathbf{i}'\in \mathcal{I}_{n'}}\left\{\mathrm{P}\left(Z_{\mathbf{0}}\le z, Z_{\mathbf{i}'}\le z'\right)-F(z)F(z')\right\},$$ 
+其中 $\mathbf{0}$ 表示所选空间索引集合 $\mathcal{I}_{n'}$ 中的原点. 并且对某个 $\alpha>0$, 有
+\begin{align}
+||F_{n'}(\cdot)-F(\cdot)-n'^{-1/2}\mathcal{W}_{n'}(\cdot)||_{\infty}\ll n'^{-1/2}\left\{\log (n'^{1/2})\right\}^{-\alpha},  a.s.  
+\label{EQ:gaussianprocess}
+\end{align}
+下面给出证明经验过程 $\sqrt{n'}(F_{n'}(z) - F(z))$ 在分布意义下收敛到布朗桥过程. 由于  
+\begin{align*}
+    &\left| \text{Cov}(z, z') - \left\{F(z \wedge z') - F(z)F(z')\right\} \right| \\
+    = &\left| n'^{-1} \sum_{\mathbf{i}' \in \mathcal{I}_{n'}} \left\{\mathrm{P}(Z_{\mathbf{0}} \le z, Z_{\mathbf{i}'} \le z') - F(z)F(z')\right\} - \left\{F(z \wedge z') - F(z)F(z')\right\} \right| \\
+    \le &n'^{-1} \sum_{\mathbf{i}' \in \mathcal{I}_{n'} \setminus \{\mathbf{0}\}} \left| \mathrm{P}(Z_{\mathbf{0}} \le z, Z_{\mathbf{i}'} \le z') - F(z)F(z') \right| \\
+    \le &C \sum_{i=1}^{n/T_n - 1} \alpha(iT_n; 1, 1) \\
+    \le &C_{\rho} \rho^{T_n},
+\end{align*}
+
+因此可得
+\begin{equation}\label{EQU:cov}
+    \left| \operatorname{Cov}(z, z') - \left\{ F(z \wedge z') - F(z)F(z') \right\} \right| = \mathcal{O}(\rho^{T_n}),
+\end{equation}
+
+因为 $ T_n \to \infty $ 且 $ \rho^{T_n} \to 0 $, 所以当 $ n \to \infty $ 时, 上述差异趋于 0. 这表明经验过程 $\sqrt{n'}(F_{n'}(z) - F(z))$ 的协方差结构收敛到布朗桥$\mathcal{B}(\cdot)$ 的协方差结构. 因此, 在指数衰减$\alpha(k; i, j) \leq C_\rho i \rho^k$, 其中 $\theta \in (0,1)$ , 且空间位置的选择足够稀疏满足 $T_n \sim n^{\theta}$时, $\mathcal{I}_{n'}$ 索引的观测值渐近独立. 因此经验过程满足泛函中心极限定理的条件, 从而得到
+\[
+\sqrt{n'}(F_{n'}(\cdot) - F(\cdot)) \overset{D}{\longrightarrow} \mathcal{B}(F(\cdot)).
+\]
+
+
+
+令 $a_{n'} = n'+h$, 并将区间 $[-a_{n'}, a_{n'}] $ 划分为等距网格点 $-a_{n'} = z_1 < \dots < z_{L_n+1} = a_{n'}$，其中 $L_n = n^2$.定义：
+\begin{align}\label{EQ:Lamda1}
+    &\Lambda_1 = \left\vert \mathcal{W}_{n'}(-n')\right\vert+ \left\vert \mathcal{W}_{n'}(n')\right\vert, \\ 
+    &\Lambda_2 = \max_{1\leq l\leq L_n}\left\vert \mathcal{W}_{n'}(z_l + h) - \mathcal{W}_{n'}(z_l-h)\right\vert. \label{EQ:Lamda2}
+\end{align}
+
+\begin{lem}\label{Lemma:g_h}
+    在假设 (A1), (A3)-(A4) 和 (A6) 成立的条件下, 对于任何 $g \in L^{\infty}(\mathbb{R}) \cap C^{(0,1)}(\mathbb{R})$，有：
+    \begin{align}\label{EQ:g_h}
+        &\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert \notag \\
+        \leq& \frac{2a_{n'}}{h^2L_{n}}\Vert g\Vert_{0,1} + \Vert g\Vert_{\infty}h^{-1}\left\{\max \left( M_{2+\delta}n'^{-(2+\delta)}, 2hC_f \right ) + 2\Delta_n + \max\left({\Lambda_1},{\Lambda_2}\right) n'^{-1/2}\right\},
+    \end{align}
+    且当 $n \to \infty$ 时，
+    \[ \Lambda_1 = \mathcal{O}_{p}\left(\left(n'^{-2-\delta}+\rho^{T_n}\right)^{1/2}\right), \quad \Lambda_2 = \mathcal{O}_{a.s.}\left(\left(h+\rho^{T_n}\right)^{1/2}\left(\log n\right)^{1/2}\right). \]
+\end{lem}
+
+\begin{proof}
+将 $\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}' \in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert$ 分解为以下两项：
+\begin{align*}
+    &\sup_{z\in\mathbb{R}}\left\vert n'^{-1}\sum_{\mathbf{i}' \in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert\\
+    \leq& \max\left(\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert, \sup_{\vert z\vert\in\left[0,a_{n'}\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert\right).
+\end{align*}
+一方面，
+\begin{align*}
+    &\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert  \\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}I\left(Z_{\mathbf{i}'}\in(z-h,z+h)\right)\\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\left\{F_{n'}(-a_{n'}+h)+1-F_{n'}(a_{n'}-h)\right\} \notag\\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\left\{F_{n'}(-n')+1-F_{n'}(n')\right\} \\
+    \leq &\frac{\Vert g\Vert_{\infty}}{h}\left\{F(-n')+1-F(n')\right\} \\
+    & + \frac{\Vert g\Vert_{\infty}}{h}\left\vert\left\{F_{n'}(-n')-F(-n')\right \}-\left \{F_{n'}(n')-F(n')\right\} \right\vert,
+\end{align*}
+
+因此, 根据式(\ref{EQ:gaussianprocess}), 可得
+\begin{equation}
+\begin{aligned} \label{DEF:Gaussian}
+\Delta_n
+=||F_{n'}(\cdot)-F(\cdot)-n'^{-1/2}\mathcal{W}_{n'}(\cdot)||_{\infty}
+=\mathcal{O}_{a.s.}\left(n'^{-1/2}\left\{\log (n'^{1/2})\right\}^{-\alpha}\right).
+\end{aligned}
+\end{equation}
+
+回顾式(\ref{DEF:Gaussian})中 $\Delta_n$ 的定义以及式(\ref{EQ:Lamda1})中 $\Lambda_1$ 的定义, 有
+\begin{align} \label{EQ:Situ1}
+\sup_{\vert z\vert\in\left[a_{n'},+\infty\right]}
+\left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert
+\leq
+\frac{\Vert g\Vert_{\infty}}{h}
+\left\{M_{2+\delta}n'^{-(2+\delta)} + 2\Delta_n + \frac{\Lambda_1}{\sqrt{n'}}\right\}.
+\end{align}
+
+另一方面, 可以得到
+\begin{align}
+    &\sup_{z\in\left[-a_{n'},a_{n'}\right]}
+    \left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}g_h(z-Z_{\mathbf{i}'})\right\vert \notag\\
+    \leq &
+    \Vert g\Vert_{\infty}h^{-1}
+    \max_{1\leq l\leq L_n+1}
+    \left\vert F_{n'}(z_l+h) - F_{n'}(z_l-h)\right\vert \notag\\
+    &+
+    \max_{1\leq l\leq L_n+1}
+    \sup_{z\in\left[z_l,z_{l+1}\right]}
+    \left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+    \left\{g_h(z-Z_{\mathbf{i}'}) - g_h(z_l-Z_{\mathbf{i}'})\right\}\right\vert \notag\\
+    \leq &
+    \Vert g\Vert_{\infty}h^{-1}
+    \max_{1\leq l\leq L_n+1}
+    \left\vert F(z_l+h) - F(z_l-h)\right\vert \notag\\
+    &+
+    \max_{1\leq l\leq L_n+1}
+    \left\vert
+    \left\{ F_{n'}(z_l+h) - F(z_l+h)\right \}
+    -\left \{F_{n'}(z_l-h) - F(z_l-h)\right \}
+    \right\vert \notag\\
+    &+
+    \max_{1\leq l\leq L_n+1}
+    \sup_{z\in\left[z_l,z_{l+1}\right]}
+    \left\vert n'^{-1}\sum_{\mathbf{i}'\in\mathcal{I}_{n'}}
+    \left\{g_h(z-Z_{\mathbf{i}'}) - g_h(z_l-Z_{\mathbf{i}'})\right\}\right\vert \notag\\
+    \leq &
+    \Vert g\Vert_{\infty}h^{-1}
+    \left\{2hC_f + 2\Delta_n + \frac{\Lambda_2}{\sqrt{n'}}\right\}
+    + \frac{2a_{n'}}{h^2L_{n'}}\Vert g\Vert_{0,1}.
+\label{EQ:Situ2}
+\end{align}
+
+结合式(\ref{EQ:Situ1})与式(\ref{EQ:Situ2}), 可推出式(\ref{EQ:g_h}).
+
+接下来, 由式(\ref{EQU:cov})可得
+\begin{align*}
+    \Lambda_1
+    = &\left\vert \mathcal{W}_{n'}(-n')\right\vert
+      + \left\vert \mathcal{W}_{n'}(n')\right\vert\\
+    = &
+    \mathcal{O}_p\left(
+    \sqrt{F(-n')\left\{1-F(-n') \right\}+C_{\rho}\rho^{T_n}}
+    \right)
+    +
+    \mathcal{O}_p\left(
+    \sqrt{F(n')\left\{1-F(n')\right\} +C_{\rho}\rho^{T_n}}
+    \right),
+\end{align*}
+
+并且由于
+\begin{align*}
+    F(-n')+1-F(n')
+    = P\left(\vert Z_{\mathbf{1}} \vert> n'\right)
+    \leq \frac{M_{2+\delta}}{n'^{2+\delta}},
+\end{align*}
+
+因此可得
+\[
+\Lambda_1
+=
+\mathcal{O}_{p}\left(\left(n'^{-2-\delta}+\rho^{T_n}\right)^{1/2}\right).
+\]
+
+同理, 由于
+\begin{align*}
+    &\mathrm{E}\left\{\mathcal{W}_{n'}(z_l+h) - \mathcal{W}_{n'}(z_l-h)\right\}^2\\
+    =&
+    \mathrm{E} \mathcal{W}_{n'}^{2}(z_l+h)
+    +\mathrm{E} \mathcal{W}_{n'}^{2}(z_l-h)
+    -2\mathrm{E} \mathcal{W}_{n'}(z_l+h)\mathcal{W}_{n'}(z_l-h)\\
+    \le &
+    \left\{F(z_l+h) - F(z_l-h)\right\}
+    - \left\{F(z_l+h) - F(z_l-h)\right\}^2
+    +4C_{\rho}{\rho}^{T_n}\\
+    \leq&
+    \left\{F(z_l+h) - F(z_l-h)\right\}
+    +4C_{\rho}{\rho}^{T_n}\\
+    \leq &
+    2hC_f+4C_{\rho}{\rho}^{T_n},
+\end{align*}
+
+根据文献\cite{wang2022oracle} 中的 Lemma A.7, 将其应用于正态变量
+$\mathcal{W}_{n'}(z_l+h) - \mathcal{W}_{n'}(z_l-h), 1\le l\le L_n+1,$
+可得
+\begin{align*}
+\Lambda_2
+=
+\mathcal{O}_{a.s.}\left(
+\log^{1/2}(L_n)
+\times
+(2hC_f+4C_{\rho}{\rho}^{T_n})^{1/2}
+\right)
+=
+\mathcal{O}_{a.s.}\left(
+\left(h+\rho^{T_n}\right)^{1/2}
+\left(\log n\right)^{1/2}
+\right).
+\end{align*}
+
+因此, 本引理得证.
+
+\end{proof}
+
+
+%\backmatter
+% \clearpage
+% \addcontentsline{toc}{chapter}{致谢}
+% \chapter*{致谢}
+% \thispagestyle{fancy}
+% \fancyhead[EL]{致谢}
+% \fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+% \fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+% \fancyhead[OR]{致谢}
+% 研究生三年的时光即将结束,  虽然有时感叹时光飞逝,  但我深知这段时光带给我的成长和收获是无法用时间来衡量的. 在这三年中,  我不仅积累了丰富的专业知识,  还结识了许多优秀的同学和老师,  与他们共同度过了许多难忘的时光. 
+
+% 首先我要感谢我的导师张园园老师. 在我进入研究生阶段之初,  张老师就为我提供了很多关于研究方向和论文写作的建议,  帮助我确定了研究课题,  并在整个研究过程中给予了我很多指导和支持. 在我遇到问题时,  张老师总是耐心地听取我的问题并给予我建设性的建议,  帮助我克服困难,  取得进步. 张老师对我的鼓励和支持让我倍感鼓舞,  我将继续努力,  争取为统计学科做出自己的一份贡献. 另外, 感谢苏州大学数学科学学院统计学专业的马学俊老师、唐煜老师、程东亚老师和严继高老师, 他们在我硕士期间的学习课程中给予了很多帮助和支持. 
+
+% 感谢我的师兄高伟健和董浩杰, 他们二人对我研一、研二的学习提供了很多建议和帮助. 感谢我的同门雷善涛和师妹吴宇菲,  在我硕士阶段我们一起度过了一段有趣的时光. 
+
+% 最后感谢我的父母在读研期间对我的理解和支持.
+
+%\newpage
+%\includepdfmerge{学位论文答辩委员会决议和委员名单.pdf}
+\end{document}
+
+

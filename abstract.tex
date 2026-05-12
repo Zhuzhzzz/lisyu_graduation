@@ -1,0 +1,63 @@
+\pagenumbering{Roman}
+\newpage % 确保从新的一页开始 
+\thispagestyle{fancy} % 设置当前页面的样式为fancy（如果需要的话）
+\fancyhead[EL]{摘要}
+\fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{摘要}
+\begin{center}
+  {\Large \bf 摘要}
+  
+\end{center}
+
+空间序列分析在环境科学、地质科学和生物科学等多个领域中有着广泛的应用, 并受到越来越多的关注. 本文结合经验过程理论, 针对非平稳空间序列, 提出了一种基于核分布估计的光滑同时置信带构造方法, 实现对误差分布函数的稳健估计. 在估计方法上, 本文采用样本分割框架, 具体过程如下：首先选取规模较小的部分观测点集, 通过去除二元样条趋势项后得到残差样本, 用于估计误差分布函数；随后利用剩余子集估计空间序列的双变量趋势函数. 该分层估计策略结合经验过程理论的基本思想, 既提高了模型的计算效率,又有效减少了趋势估计对误差分布估计的干扰.
+
+基于经验过程理论相关结论, 本文证明了所提出的基于残差的核分布函数估计量在一致意义下具有默示有效性, 即其估计性能渐近等价于基于真实误差分布的理想估计量. 同时, 利用经验过程的收敛性质,证明了所构建的光滑同时置信带与经典柯尔莫格洛夫-斯米尔诺夫型同时置信带具有相同的渐近性质 ,且该性质在真实误差分布不可观测的情况下仍然成立.
+
+为验证方法的有效性, 本文结合数值模拟设计, 通过全球二氧化碳浓度、黑海表面温度两组实证数据进行分析, 重点检验了误差项的边际分布特征, 进一步验证了所提方法在非平稳空间序列误差分布估计中的可行性与优越性.
+
+{\bf 关键词：}二元样条估计; 误差分布; 核函数; 同时置信带; 空间序列.
+\begin{flushright}
+  作者： ***\\
+指导老师： ***
+\end{flushright}
+
+\newpage % 确保从新的一页开始 
+\thispagestyle{fancy}
+\fancyhead[EL]{Abstract}
+\fancyhead[ER]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于累积分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{Abstract}
+\begin{center}
+  {\Large \bf  Statistical inference for the nonstationary spatial series via cumulative distribution function }
+\end{center}
+
+
+\begin{center}
+
+  { \bf  Abstract }
+\end{center}
+
+Spatial series analysis has garnered significant attention due to its wide range of applications in various fields such as environmental science, geological science, and biological science. Combined with empirical process theory, this paper proposes a kernel-based smooth simultaneous confidence band (SCB) construction method for nonstationary spatial series, aiming to achieve robust estimation of the error distribution function. In terms of the estimation procedure, The kernel distribution estimator is computed from residuals after removing the bivariate spline trend over a smaller number of observation locations, while the bivariate trend estimator of spatial series are computed from the remaining larger
+set of observation locations. This hierarchical estimation strategy, combined with the fundamental principles of empirical process theory, not only improves computational efficiency but also effectively reduces the interference of trend estimation on error distribution estimation.
+
+Based on theoretical results from empirical process theory, we establish the oracle efficiency of the proposed residual-based kernel distribution estimator in the sense of uniform convergence. That is, its asymptotic performance is equivalent to that of the infeasible ideal estimator constructed from the true error distribution. Furthermore, by exploiting the convergence properties of empirical processes, we show that the proposed smooth simultaneous confidence band possesses the same asymptotic properties as the classical Kolmogorov--Smirnov type simultaneous confidence band, and this property 
+
+\newpage % 确保从新的一页开始 
+\thispagestyle{fancy}
+\fancyhead[EL]{Abstract}
+\fancyhead[ER]{ 度量空间中的非渐近置信区域 }
+\fancyhead[OL]{ 度量空间中的非渐近置信区域 }
+\fancyhead[OR]{Abstract}
+\noindent remains valid even when the true error distribution is unobservable.
+
+To evaluate the effectiveness of the proposed method, simulation studies are conducted together with two real data applications, namely global carbon dioxide concentration data and Black Sea surface temperature data. The marginal distribution characteristics of the error terms are carefully examined, further demonstrating the feasibility and superiority of the proposed approach in estimating error distributions for nonstationary spatial series.
+
+{\bf Keywords:} bivariate spline estimator, error distribution, kernel, smooth simultaneous confidence band, spatial series
+
+\begin{flushright}
+  Written by ***\\
+Supervised by ***
+\end{flushright}
+
+

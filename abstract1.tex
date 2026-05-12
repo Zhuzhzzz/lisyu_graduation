@@ -1,0 +1,52 @@
+\pagenumbering{Roman}
+\newpage % 确保从新的一页开始 
+\thispagestyle{fancy} % 设置当前页面的样式为fancy（如果需要的话）
+\fancyhead[EL]{摘要}
+\fancyhead[ER]{ 基于分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{摘要}
+\begin{center}
+  {\Large \bf 摘要}
+  
+\end{center}
+
+空间序列分析在环境科学, 地质科学和生物科学等多个领域中有着广泛的应用, 并受到越来越多的关注. 本文基于核分布估计构建了一种用于非平稳空间序列累积分布函数的光滑同时置信带.通过对残差样本进行核估计实现光滑分布函数的构建. 在方法上, 首先利用较小规模的$n'$个观测点集，通过去除二元样条趋势项后得到残差样本, 用于估计误差分布函数; 随后, 利用剩余较大规模的$n''$个观测点集估计空间序列的双变量趋势函数.该分层估计框架既提高了模型的计算效率，又有效减少了趋势估计对误差分布估计的影响.
+
+本文证明了所提出的基于残差的核分布函数估计量在一致意义下具有默示有效性(oracle efficiency), 即其估计性能渐近等价于基于真实误差分布的理想估计量. 同时, 所构建的光滑同时置信带与经典柯尔莫格洛夫-斯米尔诺夫(Kolmogorov-Smirnov) 型同时置信带具有相同的渐近性质, 即使真实误差分布不可观测,该性质仍然成立.
+数值模拟和实证分析检验了误差项的边际分布特征, 说明了所提出方法的有效性.
+
+
+{\Large 关键词：}二元样条估计量; 累积分布函数; 核函数; 置信带; 空间序列.
+\begin{flushright}
+  作者： 李思雨\\
+指导老师： 张园园
+\end{flushright}
+
+\newpage % 确保从新的一页开始 
+\thispagestyle{fancy}
+\fancyhead[EL]{Abstract}
+\fancyhead[ER]{ 基于分布函数的非平稳空间序列统计推断 }
+\fancyhead[OL]{ 基于分布函数的非平稳空间序列统计推断 }
+\fancyhead[OR]{Abstract}
+\begin{center}
+  {\Large \bf  Statistical inference for the nonstationary spatial series via cumulative distribution function }
+\end{center}
+
+
+\begin{center}
+
+  { \bf  Abstract }
+\end{center}
+
+Spatial series analysis has garnered significant attention due to its wide range of applications in various fields such as environmental science, geological science, and biological science. A smooth simultaneous confidence band (SCB) is constructed for the cumulative distribution function of nonstationary spatial series based on a plug-in kernel distribution estimator. The kernel distribution estimator is computed from residuals after removing the bivariate spline trend over a smaller number of observation locations, while the bivariate trend estimator of spatial series are computed from the remaining larger
+set of observation locations. Under mild assumptions, it is shown that the kernel distribution estimator is a uniformly oracle-efficient estimator of the marginal error distribution, and the SCB has the same asymptotic properties as the classic Kolmogorov-Smirnov SCB based on the infeasible empirical cumulative
+distribution function of unobserved errors. Simulation experiments corroborate the theoretical findings. Specifically, the proposed SCB method is applied to real-world datasets to evaluate the marginal error distribution.
+
+{Keywords:}bivariate spline estimator, cumulative distribution function, kernel, oracle efficiency, spatial series
+
+\begin{flushright}
+  Written by siyu Li\\
+Supervised by Yuanyuan Zhang
+\end{flushright}
+
+
