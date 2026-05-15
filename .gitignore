@@ -15,8 +15,16 @@
 # Local build/output folders
 build/
 out/
+defense_ppt/out/
+defense_ppt/out_check/
 archive/old_build_outputs/
+答辩材料/out/
+答辩材料/out_check/
+论文正文/out/
+归档/old_build_outputs/
 
 # Editor/system noise
+.vscode/
 .DS_Store
 Thumbs.db
+

@@ -12,7 +12,9 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{graphicx, amssymb}
-\graphicspath{{defense_ppt/}{./}}
+\graphicspath{{答辩材料/}{图表结果/}{../图表结果/}{./}}
+\IfFileExists{图表结果/Npoints.pdf}{\newcommand{\plotdir}{图表结果/}}{\newcommand{\plotdir}{../图表结果/}}
+\newcommand{\plotfile}[1]{\plotdir#1}
 \usepackage{hyperref}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -29,6 +31,9 @@
 \newtheorem{thm}{定理}
 \newtheorem{proposition}{命题}
 \newtheorem{coro}{推论}
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
 
 \setcounter{MaxMatrixCols}{10}
 
@@ -64,7 +69,7 @@
 \begin{document}
  
 \title[误差分布]{基于累积分布函数的非平稳空间序列统计推断}
-\titlegraphic{\includegraphics[width=2cm]{suda.jpeg}}
+\titlegraphic{\includegraphics[width=2cm]{苏州大学校徽.jpeg}}
 \date{2026/5/20}
 
 
@@ -426,17 +431,32 @@ Z_{i_1, i_2} = e_{i_1, i_2} + 0.3\, e_{i_1, i_2-1} + 0.3\, e_{i_1-1, i_2} + 0.1\
 \begin{frame}{模拟研究}
 \begin{figure}[H]
     \centering 
-    \setlength{\tabcolsep}{0pt} 
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{0.78}
+    \scriptsize
     \begin{tabular}{cc}
-        \includegraphics[width=0.5\textwidth]{tri_re6.pdf} &
-        \hspace{-0.4in}
-        \includegraphics[width=0.5\textwidth]{tri_ir6.pdf} \\
-        (a) & (b) \\
+        \includegraphics[width=0.43\textwidth]{\plotfile{re(8,9).png}} &
+        \includegraphics[width=0.43\textwidth]{\plotfile{re(32,25).png}} \\
+        $\triangle_{\text{rectangle,1}}$ & $\triangle_{\text{rectangle,2}}$
     \end{tabular}
-    \caption{三角剖分示例：(a)矩形区域 (b) shape区域}
+    \caption{三角剖分示例：矩形区域}
     \label{Fig:trigulation-sim}
 \end{figure}
+\end{frame}
 
+\begin{frame}{模拟研究}
+\begin{figure}[H]
+    \centering
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{0.78}
+    \scriptsize
+    \begin{tabular}{cc}
+        \includegraphics[width=0.43\textwidth]{\plotfile{irr(28,27).png}} &
+        \includegraphics[width=0.43\textwidth]{\plotfile{irr(49,42).png}} \\
+        $\triangle_{\text{shape,1}}$ & $\triangle_{\text{shape,2}}$
+    \end{tabular}
+    \caption{三角剖分示例：shape区域}
+\end{figure}
 \end{frame}
 
 
@@ -444,11 +464,11 @@ Z_{i_1, i_2} = e_{i_1, i_2} + 0.3\, e_{i_1, i_2-1} + 0.3\, e_{i_1-1, i_2} + 0.1\
 \small
 \vspace{-0.3cm}
 \begin{table}[!htb]
-\caption{ 矩形区域和shape区域上三种估计量平均最大偏差的对比}
+\caption{三种估计量平均最大偏差的对比}
 \begin{center}
 \begin{tabular}{llcc}
         \toprule
-        偏差 & $(n_1,n_2)$ & 规则区域 & shape区域 \\
+        偏差 & $(n_1,n_2)$ & 情形 I & 情形 II \\
         \midrule
         \multirow{4}{*}{$\bar{D}(\hat{F}_{n',h},F)$} 
             & $(100,50)$    & 0.0433 & 0.0571\\
@@ -509,22 +529,9 @@ $(500,500)$ & 0.99 & 0.992 & 0.984 & 0.992 & $\ast$ \\
 \end{frame}
 
 \begin{frame}{模拟研究}
-\vspace{-0.1cm}
-\begin{figure}
-\vspace{-0.5cm}
-\caption{矩形区域上$D\left( \hat{F}_{n^{\prime },h},F\right)$ 的箱线图 }
-\centering
-    \begin{minipage}[t]{\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{bpNregular.pdf}
-    \end{minipage}
-\end{figure}
-\end{frame}
-
-\begin{frame}{模拟研究}
 \vspace{-0.3cm}
 \begin{table}[!htb]
-\caption{ 不规则区域上同时置信带覆盖率的对比}
+\caption{情形 II中在$\triangle_{\text{shape,1}}$上基于正态分布所得SCB的覆盖率}
 \begin{center}
 \footnotesize 
 \renewcommand{\arraystretch}{0.8} 
@@ -534,22 +541,22 @@ $(500,500)$ & 0.99 & 0.992 & 0.984 & 0.992 & $\ast$ \\
 \cmidrule{3-5}
 & & $\hat{F}_{n', h}$ & $\hat{F}_{n'}$ & $\tilde{F}_{n', h}$ & \\ 
 \midrule
-$(100,50)$  & 0.99 & 0.988 & 0.986 & 0.988 & $\ast$ \\
-            & 0.95 & 0.966 & 0.966 & 0.960 &  -- \\
-            & 0.90 & 0.916 & 0.910 & 0.914 &  -- \\
-            & 0.80 & 0.818 & 0.814 & 0.860 & $\ast\ast$ \\ \addlinespace
-$(200,100)$ & 0.99 & 0.998 & 0.998 & 0.996 & -- \\
-            & 0.95 & 0.966 & 0.960 & 0.968 & -- \\
-            & 0.90 & 0.914 & 0.910 & 0.912 & -- \\
-            & 0.80 & 0.814 & 0.816 & 0.810 & $\ast\ast$ \\ \addlinespace
-$(200,200)$ & 0.99 & 0.992 & 0.990 & 0.992 & $\ast$ \\
-            & 0.95 & 0.960 & 0.956 & 0.974 & $\ast\ast$ \\
-            & 0.90 & 0.914 & 0.892 & 0.930 & $\ast\ast$ \\
-            & 0.80 & 0.828 & 0.798 & 0.838 & $\ast\ast$ \\ \addlinespace
-$(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
-            & 0.95 & 0.954 & 0.940 & 0.962 & $\ast\ast$ \\
-            & 0.90 & 0.906 & 0.888 & 0.910 & $\ast\ast$ \\
-            & 0.80 & 0.814 & 0.770 & 0.834 & $\ast\ast$ \\ 
+$(100,50)$  & 0.99 & 0.992 & 0.992 & 0.992 & $\ast$ \\
+            & 0.95 & 0.966 & 0.962 & 0.972 & $\ast\ast$ \\
+            & 0.90 & 0.924 & 0.920 & 0.932 & $\ast\ast$ \\
+            & 0.80 & 0.836 & 0.830 & 0.844 & $\ast\ast$ \\ \addlinespace
+$(200,100)$ & 0.99 & 0.994 & 0.994 & 0.994 & $\ast$ \\
+            & 0.95 & 0.958 & 0.960 & 0.974 & $\ast\ast$ \\
+            & 0.90 & 0.932 & 0.928 & 0.934 & $\ast\ast$ \\
+            & 0.80 & 0.846 & 0.842 & 0.832 & -- \\ \addlinespace
+$(200,200)$ & 0.99 & 0.994 & 0.992 & 0.994 & $\ast$ \\
+            & 0.95 & 0.956 & 0.958 & 0.974 & $\ast\ast$ \\
+            & 0.90 & 0.942 & 0.930 & 0.958 & $\ast\ast$ \\
+            & 0.80 & 0.830 & 0.832 & 0.854 & $\ast\ast$ \\ \addlinespace
+$(500,500)$ & 0.99 & 0.988 & 0.984 & 0.994 & $\ast\ast$ \\
+            & 0.95 & 0.952 & 0.936 & 0.964 & $\ast\ast$ \\
+            & 0.90 & 0.900 & 0.906 & 0.920 & $\ast\ast$ \\
+            & 0.80 & 0.816 & 0.784 & 0.820 & $\ast\ast$ \\ 
 \bottomrule
 \end{tabular}
 \end{center}
@@ -557,97 +564,232 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
 \end{frame}
 
 \begin{frame}{模拟研究}
-\vspace{-0.1cm}
+\vspace{-0.3cm}
+\begin{table}[!htb]
+\caption{情形 II中在$\triangle_{\text{shape,2}}$上基于正态分布所得SCB的覆盖率}
+\begin{center}
+\footnotesize
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{lccccc}
+\toprule
+\multirow{2}{*}{$(n_1,n_2)$} & \multirow{2}{*}{$1-\alpha$} & \multicolumn{3}{c}{覆盖率} & \multirow{2}{*}{比较结果} \\
+\cmidrule{3-5}
+& & $\hat{F}_{n', h}$ & $\hat{F}_{n'}$ & $\tilde{F}_{n', h}$ & \\
+\midrule
+$(100,50)$  & 0.99 & 0.988 & 0.986 & 0.988 & $\ast$  \\
+            & 0.95 & 0.966 & 0.966 & 0.960 &  -- \\
+            & 0.90 & 0.916 & 0.910 & 0.914 &  -- \\
+            & 0.80 & 0.818 & 0.814 & 0.860 & $\ast\ast$ \\ \addlinespace
+$(200,100)$ & 0.99 & 0.998 & 0.998 & 0.996 & --  \\
+            & 0.95 & 0.966 & 0.960 & 0.968 & -- \\
+            & 0.90 & 0.914 & 0.910 & 0.912 & -- \\
+            & 0.80 & 0.814 & 0.816 & 0.810 & $\ast\ast$ \\ \addlinespace
+$(200,200)$ & 0.99 & 0.992 & 0.990 & 0.992 & $\ast$  \\
+            & 0.95 & 0.960 & 0.956 & 0.974 & $\ast\ast$ \\
+            & 0.90 & 0.914 & 0.892 & 0.930 & $\ast\ast$ \\
+            & 0.80 & 0.828 & 0.798 & 0.838 & $\ast\ast$ \\ \addlinespace
+$(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
+            & 0.95 & 0.950 & 0.940 & 0.962 & $\ast\ast$ \\
+            & 0.90 & 0.906 & 0.888 & 0.910 & $\ast\ast$ \\
+            & 0.80 & 0.804 & 0.790 & 0.808 & $\ast\ast$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}{模拟研究}
+\vspace{-0.25cm}
 \begin{figure}
-\vspace{-0.5cm}
-\caption{ 不规则区域上$D\left( \hat{F}_{n^{\prime },h},F\right) $ 的箱线图}
 \centering
-        \begin{minipage}[t]{\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{bpNirregular.pdf}
-    \end{minipage}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{cc}
+\includegraphics[width=0.47\linewidth]{\plotfile{bpNregular.pdf}} &
+\includegraphics[width=0.47\linewidth]{\plotfile{bpNirregular.pdf}}\\
+(a) 情形 I & (b) 情形 II
+\end{tabular}
+\caption{统计量 $D(\hat{F}_{n',h},F)$ 的箱线图}
+\end{figure}
+\end{frame}
+
+\begin{frame}{模拟研究}
+\vspace{-0.3cm}
+\begin{figure}
+\centering
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{cc}
+\scriptsize
+\includegraphics[width=0.36\linewidth]{\plotfile{5000NormalF-regular.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{250000NormalF-regular.pdf}}\\
+(a) 情形 I, $(100,50)$ & (b) 情形 I, $(500,500)$\\
+\includegraphics[width=0.36\linewidth]{\plotfile{5000NormalF.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{250000NormalF.pdf}}\\
+(c) 情形 II, $(100,50)$ & (d) 情形 II, $(500,500)$
+\end{tabular}
+\caption{$\hat{F}_{n',h}$ 的光滑 99\% 同时置信带与真实分布比较}
 \end{figure}
 \end{frame}
 
 \section{实际数据分析}
 \begin{frame}{实际数据分析}
 \begin{itemize}
-    \item 真实数据\uppercase\expandafter{\romannumeral 1}选取黑海海表温度数据. \cite{huq2023}, \cite{cai2024global}.
+    \item 真实数据\uppercase\expandafter{\romannumeral 1}选取全球大气二氧化碳浓度数据.
+         \begin{itemize}
+            \item 数据格点为$2.5^{\circ}\times 2^{\circ}$, 覆盖全球范围.
+            \item 数据来源：\url{http://www.geodoi.ac.cn}.
+        \end{itemize}
+    \item 真实数据\uppercase\expandafter{\romannumeral 2}选取黑海海表温度数据. \cite{huq2023}, \cite{cai2024global}.
         \begin{itemize}
             \item 黑海经纬度范围：$40.5^{\circ}$N - $47.6^{\circ}$N和$26.8^{\circ}$E - $42.2^{\circ}$E.
             \item 数据来源：
     \url{https://marine.copernicus.eu}.
         \end{itemize}
-    \item 真实数据\uppercase\expandafter{\romannumeral 2}选取全球大气二氧化碳浓度数据.
-         \begin{itemize}
-            \item 数据格点为$2.5^{\circ}\times 2^{\circ}$.
-            \item 数据来源：\url{http://www.geodoi.ac.cn}.
-        \end{itemize}
-       
 \end{itemize}
 \end{frame}
 
-\begin{frame}{实际数据}
-\vspace{-0.1cm}
+\begin{frame}{实际数据：全球 CO$_2$}
+\vspace{-0.25cm}
 \begin{figure}
-\vspace{-0.5cm}
-\caption{黑海海表温度数据}
 \centering
-    \begin{minipage}[t]{\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{heatmap09.pdf}
-    \end{minipage}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{cc}
+\scriptsize
+\includegraphics[width=0.36\linewidth]{\plotfile{Y_CO2.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{ghatCO2.pdf}}\\
+(a) 20 年平均 CO$_2$ 浓度 & (b) 趋势估计 $\hat{g}$\\
+\includegraphics[width=0.36\linewidth]{\plotfile{normalfit95.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{normalfit0.004.pdf}}\\
+(c) 95\% oracle SCB & (d) 99.6\% oracle SCB
+\end{tabular}
+\caption{全球 CO$_2$ 数据及正态性检验}
 \end{figure}
 \end{frame}
 
-\begin{frame}{实际数据}
-\vspace{-0.1cm}
+\begin{frame}{实际数据：黑海采样与剖分}
+\vspace{-0.25cm}
 \begin{figure}
-\vspace{-0.5cm}
-\caption{全球大气二氧化碳浓度数据}
 \centering
-    \begin{minipage}[t]{\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Y_CO2.pdf}
-    \end{minipage}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{cc}
+\scriptsize
+\includegraphics[width=0.36\linewidth]{\plotfile{Npoints.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{N1points.pdf}}\\
+(a) 观测温度格点 & (b) 趋势估计子集 $\mathcal{I}_{n'}$\\
+\includegraphics[width=0.36\linewidth]{\plotfile{N2points.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{trigulation.pdf}}\\
+(c) KDE 子集 $\mathcal{I}_{n''}$ & (d) 黑海区域三角剖分
+\end{tabular}
+\caption{黑海区域观测位置、子样本选择与三角剖分}
+\end{figure}
+\end{frame}
+
+\begin{frame}{实际数据：黑海海表温度}
+\vspace{-0.25cm}
+\begin{figure}
+\centering
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{cc}
+\scriptsize
+\includegraphics[width=0.36\linewidth]{\plotfile{heatmap09.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{heatmap24.pdf}}\\
+(a) 2020年12月9日 00:30 & (b) 2020年12月24日 00:30\\
+\includegraphics[width=0.36\linewidth]{\plotfile{blacksea_compar95.pdf}} &
+\includegraphics[width=0.36\linewidth]{\plotfile{blacksea_compar99.pdf}}\\
+(c) 95\% 光滑同时置信带 & (d) 99\% 光滑同时置信带
+\end{tabular}
+\caption{黑海海表温度数据及边际误差分布的 SCB}
 \end{figure}
 \end{frame}
 
 \section{总结}
 \begin{frame}{总结}
 \begin{itemize}
-    \item 在假设(A1)-(A6)成立的前提下，证明了二维区域上非平稳空间序列误差分布估计的渐近理论, oracle效率为${\scriptstyle{\mathcal{O}}}_{p}\left(n'^{-1/2}\right)$.
-    \item 构建了适用于复杂区域的误差分布同时置信带(SCB).
+    \item 针对非平稳空间序列, 在指数衰减混合条件下构造了边际误差分布的光滑核分布函数估计量.
+    \item 通过去除双变量样条趋势项, 证明了估计量在一致意义下的 oracle 有效性, 并建立了渐近 Kolmogorov--Smirnov 型同时置信带理论.
+    \item 模拟研究和 CO$_2$、黑海海表温度实证分析表明, 所提出的 SCB 可用于评估传统参数模型的偏离程度.
+    \item 未来可进一步拓展到空间变系数模型, 研究预测误差分布估计并构建更精确的预测区间.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{References}
+\begin{frame}{参考文献}
 \tiny
-\begin{thebibliography}{20}
+\begin{thebibliography}{99}
 
-\bibitem[Hu(2023+)]{huq2023}
-Hu Qirui and Li Jie (2023+). Statistical inference for mean function of longitudinal imaging data over complicated domains. Statistica Sinica 34, 955-982.
-\bibitem[Cai(2024)]{cai2024global}
-Cai, Leheng and Hu, Qirui (2024). Global inference and test for eigensystems of imaging data over complicated domains. Journal of Computational and Graphical Statistics, 1-17.
-\bibitem[Wang(2022)]{wang2022oracle}
-Wang, Jiangyan and Gu, Lijie and Yang, Lijian (2022). Oracle-efficient estimation for functional data error distribution with simultaneous confidence band. Computational Statistics \& Data Analysi 167, 107363.
 \bibitem[Lai(2013)]{lai2013bivariate}
 Lai, Ming-Jun and Wang, Li (2013). Bivariate penalized splines for regression. Statistica Sinica 23, 1399-1417.
-\bibitem[Wang(2020)]{wang2020simultaneous}
-Wang, Yueying and Wang, Guannan and Wang, Li and Ogden, R Todd (2020). Simultaneous confidence corridors for mean functions in functional data analysis of imaging data. Biometrics 76(2), 427-437.
+
 \bibitem[Lai(2007)]{lai2007spline}
 Lai, Ming-Jun and Schumaker, Larry L (2007). Spline Functions on Triangulations. Cambridge University Press.
+
+\bibitem[Wang et al.(2020)]{wang2020efficient}
+Wang, Li, Wang, Guannan, Lai, Ming-Jun and Gao, Lei (2020). Efficient estimation of partially linear models for data on complicated domains by bivariate penalized splines over triangulations. Statistica Sinica 30, 347-369.
+
+\bibitem[Hu and Li(2024)]{huq2023}
+Hu, Qirui and Li, Jie (2024). Statistical inference for mean function of longitudinal imaging data over complicated domains. Statistica Sinica 34, 955-982.
+
+\bibitem[Cai and Hu(2024)]{cai2024global}
+Cai, Leheng and Hu, Qirui (2024). Global inference and test for eigensystems of imaging data over complicated domains. Journal of Computational and Graphical Statistics, 1-17.
+
 \bibitem[Yu(2019)]{yu2019estimation}
 Yu, Shan and Wang, Guannan and Wang, Li and Liu, Chenhui and Yang, Lijian (2019). Estimation and inference for generalized geoadditive models. Journal of the American Statistical Association 115, 761-774.
-\bibitem[Bosq(2012)]{bosq2012nonparametric}
-Bosq, Denis (2012). Nonparametric Statistics for Stochastic Processes: Estimation and Prediction. Springer Science \& Business Media.
+
+\bibitem[Wang et al.(2020)]{wang2020simultaneous}
+Wang, Yueying, Wang, Guannan, Wang, Li and Ogden, R. T. (2020). Simultaneous confidence corridors for mean functions in functional data analysis of imaging data. Biometrics 76, 427-437.
+
 \bibitem[Yao(2003)]{Yao2003ExponentialIF}
 Yao, Qiwei (2003). Exponential inequalities for spatial processes and uniform convergence rates for density estimation. Development Of Modern Statistics And Related Topics, 118-128.
+
 \bibitem[Fazekas(2006)]{fazekas2006asymptotic}
 Fazekas, Istv{\'a}n and Chuprunov, Alexey (2006). Asymptotic normality of kernel type density estimators for random fields. Statistical inference for stochastic processes 9, 161-178.
+
+\bibitem[Zhu and Lahiri(2007)]{zhu2007bootstrapping}
+Zhu, Jun and Lahiri, S. N. (2007). Bootstrapping the empirical distribution function of a spatial process. Statistical Inference for Stochastic Processes 10, 107-145.
+
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}{参考文献}
+\tiny
+\begin{thebibliography}{99}
+
+\bibitem[Bosq(2012)]{bosq2012nonparametric}
+Bosq, Denis (2012). Nonparametric Statistics for Stochastic Processes: Estimation and Prediction. Springer.
+
+\bibitem[Cheng(2005)]{cheng2005asymptotic}
+Cheng, Fuxia (2005). Asymptotic distributions of error density and distribution function estimators in nonparametric regression. Journal of Statistical Planning and Inference 128, 327-349.
+
 \bibitem[Wang(2013)]{wang2013smooth}
 Wang, Jiangyan and Cheng, Fuxia and Yang, Lijian (2013). Smooth simultaneous confidence bands for cumulative distribution functions. Journal of Nonparametric Statistics, 395-407.
+
+\bibitem[Wang et al.(2014)]{wang2014oracally}
+Wang, Jiangyan, Liu, Rong, Cheng, Fuxia and Yang, Lijian (2014). Oracally efficient estimation of autoregressive error distribution with simultaneous confidence band. The Annals of Statistics 42, 654-668.
+
+\bibitem[Wang et al.(2022)]{wang2022oracle}
+Wang, Jiangyan, Gu, Lijie and Yang, Lijian (2022). Oracle-efficient estimation for functional data error distribution with simultaneous confidence band. Computational Statistics \& Data Analysis 167, 107363.
+
+\bibitem[Gu et al.(2021)]{gu2021smooth}
+Gu, Lijie, Wang, Suojin and Yang, Lijian (2021). Smooth simultaneous confidence band for the error distribution function in nonparametric regression. Computational Statistics \& Data Analysis 155, 107106.
+
+\bibitem[Lu and Tj{\o}stheim(2014)]{lu2014nonparametric}
+Lu, Zudi and Tj{\o}stheim, Dag (2014). Nonparametric estimation of probability density functions for irregularly observed spatial data. Journal of the American Statistical Association 109, 1546-1564.
+
+\bibitem[Hou et al.(2021)]{hou2021global}
+Hou, W., Jin, J., Yan, T. and Liu, Y. (2021). Global Atmospheric Carbon Dioxide Concentration Simulation Grid Dataset (1992--2020). Digit. J. Glob. Change Data Repos. 9, 83.
+
+\bibitem[Daskalov(2003)]{daskalov2003long}
+Daskalov, Georgi M. (2003). Long-term changes in fish abundance and environmental indices in the Black Sea. Marine Ecology Progress Series 255, 259-270.
+
+\bibitem[Mu et al.(2018)]{mu2018estimation}
+Mu, Jingru, Wang, Guannan and Wang, Li (2018). Estimation and inference in spatially varying coefficient models. Environmetrics 29, e2485.
+
+\bibitem[Mu et al.(2020)]{mu2020spatial}
+Mu, Jingru, Wang, Guannan and Wang, Li (2020). Spatial autoregressive partially linear varying coefficient models. Journal of Nonparametric Statistics 32, 428-451.
+
 \end{thebibliography}
 \end{frame}
 

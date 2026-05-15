@@ -1,0 +1,68 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\geometry{left=2.05cm,right=2.05cm,top=1.9cm,bottom=1.9cm}
+\setstretch{1.06}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
+\pagestyle{plain}
+
+\titleformat{\section}{\heiti\zihao{-4}}{\chinese{section}、}{0pt}{}
+\titlespacing*{\section}{0pt}{0.35em}{0.15em}
+\setlist[enumerate]{leftmargin=2.5em,itemsep=0pt,topsep=0.05em,parsep=0pt}
+
+\begin{document}
+\begin{center}
+  {\heiti\zihao{-3} 学位论文情况介绍}\\[0.25em]
+  {\zihao{5} 论文题目：基于累积分布函数的非平稳空间序列统计推断}
+\end{center}
+
+\section{论文的主要内容}
+
+本文围绕非平稳空间序列中边际误差分布函数的统计推断问题展开研究。空间序列数据广泛存在于环境科学、地质科学、海洋科学和生物科学等领域，其观测值通常同时具有空间依赖性、区域边界复杂性和趋势非平稳性。传统时间序列或规则区域空间模型中的误差分布推断方法，难以直接处理复杂不规则空间区域上的非平稳结构。针对这一问题，本文结合经验过程理论、二元样条估计和核分布估计方法，构造适用于非平稳空间序列的边际误差分布函数估计量，并进一步建立光滑同时置信带。
+
+全文共分六章。第一章介绍空间序列分析、非平稳趋势估计和误差分布推断的研究背景，梳理国内外相关研究现状，并说明本文研究内容与创新点。第二章给出全文所需的数学符号、混合依赖条件、相依随机场集中不等式以及非参数估计基础，同时介绍样本分割思想，为后续理论推导奠定基础。第三章建立非平稳空间序列模型框架，利用定义在三角剖分区域上的二元样条刻画未知空间趋势函数，并在指数衰减混合条件下研究残差结构及相关渐近性质。第四章基于残差样本构造核分布函数估计量，证明其与基于真实误差的不可行估计量在一致意义下渐近等价，并由此推导边际累积分布函数最大偏差的渐近分布，构造柯尔莫格洛夫--斯米尔诺夫型光滑同时置信带。第五章通过规则区域和不规则区域的数值模拟检验所提方法的有限样本表现，并将方法用于全球大气二氧化碳浓度数据和黑海表面温度数据分析，考察误差分布与常见参数模型之间的偏离。第六章总结主要结论，并讨论进一步拓展方向。
+
+\section{选题的意义}
+
+误差分布函数是统计建模和推断中的基础对象。准确估计误差分布不仅可以用于模型诊断、拟合优度检验和异常识别，也可进一步服务于预测区间构造和不确定性量化。在空间数据分析中，若误差分布被简单假定为正态或独立同分布，可能掩盖真实空间过程中的厚尾、偏态或局部异质性，从而影响推断可靠性。尤其在环境监测、气象海洋分析等应用中，观测区域往往是不规则的，数据又具有空间依赖和非平稳趋势，因此需要发展能够兼顾复杂区域几何结构与空间依赖性的误差分布推断方法。
+
+本文选题的理论意义在于，将残差经验过程和光滑分布函数估计的研究从一维时间序列或常规非参数回归场景推进到非平稳空间序列场景，在混合依赖与不规则空间区域条件下建立相应的渐近理论。本文选题的应用意义在于，为全球二氧化碳浓度、海表温度等空间监测数据提供更加稳健的模型诊断工具。通过构造整条分布函数的同时置信带，研究者可以从整体上判断参数误差分布假设是否合理，从而提高空间预测、风险评估和科学解释的可信度。
+
+\section{研究成果与创见}
+
+本文取得的主要研究成果与创见体现在以下几个方面。
+
+\begin{enumerate}
+  \item 构建了适用于非平稳空间序列的误差分布推断框架。本文在空间误差过程满足指数衰减混合条件的设定下，通过样本分割方式削弱分布估计子样本内部的空间依赖，避免趋势函数估计与误差分布估计之间的过度耦合，为空间序列误差分布推断提供了清晰的理论路径。
+  \item 引入二元样条处理复杂区域上的非平稳趋势。相较于传统核光滑、张量积样条或薄板样条方法，基于三角剖分的二元样条更能适应不规则边界并减少边界泄漏效应。本文将该方法用于去除空间非平稳趋势，使残差样本更适合进行边际误差分布估计。
+  \item 证明了残差型核分布估计量的默示有效性。本文证明基于残差得到的光滑估计量 $\hat F_{n',h}(\cdot)$ 与基于真实误差得到的不可行估计量 $\tilde F_{n',h}(\cdot)$ 在一致意义下渐近等价，说明趋势估计误差不会破坏边际误差分布估计的主要渐近性质。
+  \item 构造了边际累积分布函数的光滑同时置信带。基于估计量的默示有效性和经验过程弱收敛结果，本文推导最大偏差统计量的渐近分布，并构造具有柯尔莫格洛夫--斯米尔诺夫型临界值的同时置信带，实现对未知误差分布函数的整体推断。
+  \item 通过模拟和实证分析验证方法有效性。数值模拟表明，所构造的同时置信带在有限样本下具有较好的覆盖表现；全球二氧化碳浓度和黑海表面温度数据分析进一步表明，本文方法能够识别误差分布对传统正态假设的偏离，为环境和海洋空间数据的模型诊断提供了可操作工具。
+\end{enumerate}
+
+\section{主要参考书目}
+
+本文参考了空间统计、二元样条、经验过程、误差分布估计和同时置信带等方向的重要文献，主要包括：
+
+\begin{enumerate}
+  \item Cressie, N. \textit{Statistics for Spatial Data}. John Wiley \& Sons, 2015.
+  \item Robinson, P. M. Asymptotic theory for nonparametric regression with spatial data. \textit{Journal of Econometrics}, 2011.
+  \item Lai, M.-J. and Wang, L. Bivariate penalized splines for regression. \textit{Statistica Sinica}, 2013.
+  \item Lai, M.-J. and Schumaker, L. L. \textit{Spline Functions on Triangulations}. Cambridge University Press, 2007.
+  \item Wang, J., Cheng, F. and Yang, L. Smooth simultaneous confidence bands for cumulative distribution functions. \textit{Journal of Nonparametric Statistics}, 2013.
+  \item Wang, J., Liu, R., Cheng, F. and Yang, L. Oracally efficient estimation of autoregressive error distribution with simultaneous confidence band. \textit{The Annals of Statistics}, 2014.
+  \item Gu, L., Wang, S. and Yang, L. Smooth simultaneous confidence band for the error distribution function in nonparametric regression. \textit{Computational Statistics \& Data Analysis}, 2021.
+  \item Wang, J., Gu, L. and Yang, L. Oracle-efficient estimation for functional data error distribution with simultaneous confidence band. \textit{Computational Statistics \& Data Analysis}, 2022.
+\end{enumerate}
+
+\section{有待继续探讨的问题}
+
+本文主要研究非平稳空间序列中边际误差分布函数的估计与同时置信带构造，仍有若干问题值得进一步深入。首先，未来可将研究对象拓展到空间变系数模型，进一步考察在协变量效应随空间位置变化时预测误差分布的估计问题，并服务于响应变量预测区间构造。其次，本文主要在短程依赖和指数衰减混合条件下展开理论分析，后续可考虑更一般的弱依赖、长程依赖或时空联合依赖结构。再次，在实际应用中，带宽、三角剖分结构和样本分割比例都会影响有限样本表现，如何建立更加自适应、数据驱动的调参准则仍需继续研究。最后，随着高分辨率遥感、海洋和气象数据规模不断增大，如何在保证理论性质的同时提高计算效率，也是该方向进一步发展的重要问题。
+
+\end{document}
