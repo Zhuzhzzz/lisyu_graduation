@@ -13,6 +13,7 @@
 │   ├── 摘要.tex                     # 中英文摘要
 │   ├── 封面页.tex                   # 论文封面 LaTeX 页面
 │   ├── 参考文献.bib                 # 中文命名的参考文献库管理副本
+│   ├── reference.bib                # 直接编译 论文正文/学位论文.tex 时的 BibTeX 兼容副本
 │   └── 图片资源/                    # 校徽、标题字体、不规则区域示意图等
 ├── 论文附件/                        # 封面、双盲审说明、独创性声明等 PDF 附件
 ├── 图表结果/                        # 论文和答辩共用图表、模拟结果、实证结果
@@ -42,7 +43,7 @@
 
 ## 编译论文
 
-推荐仍从根目录编译 `main.tex`：
+推荐从根目录编译 `main.tex`：
 
 ```powershell
 latexmk -xelatex -interaction=nonstopmode -file-line-error -outdir=out main.tex
@@ -51,12 +52,12 @@ latexmk -xelatex -interaction=nonstopmode -file-line-error -outdir=out main.tex
 也可以直接编译中文主文件：
 
 ```powershell
-latexmk -xelatex -interaction=nonstopmode -file-line-error -outdir=out 论文正文/学位论文.tex
+latexmk -xelatex -interaction=nonstopmode -file-line-error -outdir=论文正文/out 论文正文/学位论文.tex
 ```
 
-编译输出目录 `out/` 是本地中间目录，默认不提交。确认结果无误后，可将最终 PDF 更新到 `成果文件/学位论文正文.pdf`。
+`论文正文/学位论文.tex` 已经做了路径兼容：从根目录入口或直接从中文主文件编译，都能找到封面、摘要、附件和图表。
 
-说明：BibTeX 对中文路径支持不稳定，因此根目录保留一份 `reference.bib` 作为编译用入口；中文目录中的 `论文正文/参考文献.bib` 作为便于管理的副本保留。
+说明：BibTeX 对中文路径支持不稳定，因此根目录保留一份 `reference.bib` 作为根目录编译入口；`论文正文/reference.bib` 用于直接编译 `论文正文/学位论文.tex`；中文目录中的 `论文正文/参考文献.bib` 作为便于管理的副本保留。
 
 ## 编译答辩材料
 
@@ -97,7 +98,7 @@ latexmk -xelatex -interaction=nonstopmode -file-line-error -outdir=答辩材料/
 ```powershell
 git status
 git add .
-git commit -m "整理毕业论文项目目录"
+git commit -m "说明这次改了什么"
 git push
 ```
 

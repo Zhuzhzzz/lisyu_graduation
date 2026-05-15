@@ -132,6 +132,8 @@
 \def\spacingset#1{\renewcommand{\baselinestretch}
 {#1}\small\normalsize} 
 \hypersetup{colorlinks=true,  linkcolor=black}
+\newcommand{\RootPrefix}{}
+\IfFileExists{论文正文/封面页.tex}{\renewcommand{\RootPrefix}{}}{\renewcommand{\RootPrefix}{../}}
 \newcommand{\chapterwithfancyheader}[1]{  
     \chapter{#1} % 使用\chapter命令创建章节  
     %\thispagestyle{plain} % 章节标题页使用plain样式（或者你可以自定义）  
@@ -142,9 +144,9 @@
 
 \zihao{-4}
 \baselineskip=30pt
-\input{论文正文/封面页}
-\includepdfmerge{论文附件/学位论文独创性声明及使用授权声明.pdf}
-\input{论文正文/摘要}
+\input{\RootPrefix 论文正文/封面页}
+\includepdfmerge{\RootPrefix 论文附件/学位论文独创性声明及使用授权声明.pdf}
+\input{\RootPrefix 论文正文/摘要}
 \pagenumbering{gobble}
 % 目录
 \clearpage % 开始新的一页  
@@ -968,11 +970,11 @@ T_n = \left\lfloor \left[ a_1 n^\theta (\log n)^{a_2} \log(\log n) \right]^{1/2}
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{图表结果/re(8,9).png}\\
+        \includegraphics[width=\linewidth]{\RootPrefix 图表结果/re(8,9).png}\\
        % \vspace{-0.1cm}
       \centerline{$\triangle_{\text{rectangle,1}}$}
        % \vspace{0.1cm}  % 可选：两图之间的垂直间距
-        \includegraphics[width=\linewidth]{图表结果/re(32,25).png}
+        \includegraphics[width=\linewidth]{\RootPrefix 图表结果/re(32,25).png}
         \centerline{$\triangle_{\text{rectangle,2}}$}
         \vspace{0.1cm}
         \centerline{(a)}  % 整体标签 (a)
@@ -980,10 +982,10 @@ T_n = \left\lfloor \left[ a_1 n^\theta (\log n)^{a_2} \log(\log n) \right]^{1/2}
     \hfill
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{图表结果/irr(28,27).png}\\
+        \includegraphics[width=\linewidth]{\RootPrefix 图表结果/irr(28,27).png}\\
         \centerline{$\triangle_{\text{shape,1}}$}
        % 
-        \includegraphics[width=\linewidth]{图表结果/irr(49,42).png}
+        \includegraphics[width=\linewidth]{\RootPrefix 图表结果/irr(49,42).png}
         \centerline{$\triangle_{\text{shape,2}}$}
         \vspace{0.1cm}
         \centerline{(b)}  % 整体标签 (b)
@@ -1158,7 +1160,7 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
 \begin{figure}[H]
 	\begin{center}
 		\scalebox{1}{\begin{tabular}{cc}
-				\includegraphics[width=2.5in]{图表结果/bpNregular.pdf}&\includegraphics[width=2.5in]{图表结果/bpNirregular.pdf}\\
+				\includegraphics[width=2.5in]{\RootPrefix 图表结果/bpNregular.pdf}&\includegraphics[width=2.5in]{\RootPrefix 图表结果/bpNirregular.pdf}\\
                 (a) & (b)  \\
 		\end{tabular}}
 	\end{center}
@@ -1174,11 +1176,11 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
 \begin{figure}[H]
 	\begin{center}
 		\scalebox{1}{\begin{tabular}{cc}
-				\includegraphics[width=2.6in]{图表结果/5000NormalF-regular.pdf}
-                &\includegraphics[width=2.6in]{图表结果/250000NormalF-regular.pdf}\\
+				\includegraphics[width=2.6in]{\RootPrefix 图表结果/5000NormalF-regular.pdf}
+                &\includegraphics[width=2.6in]{\RootPrefix 图表结果/250000NormalF-regular.pdf}\\
                 (a)  & (b)  \\
-                \includegraphics[width=2.6in]{图表结果/5000NormalF.pdf}
-                &\includegraphics[width=2.6in]{图表结果/250000NormalF.pdf}\\
+                \includegraphics[width=2.6in]{\RootPrefix 图表结果/5000NormalF.pdf}
+                &\includegraphics[width=2.6in]{\RootPrefix 图表结果/250000NormalF.pdf}\\
                 (c) & (d)  \\
 		\end{tabular}}
 	\end{center}
@@ -1201,12 +1203,12 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   \hspace{-0.08in}
   % 第一行：两个子图并排
   \begin{subfigure}[b]{0.45\textwidth} 
-    \includegraphics[width=2.7in]{图表结果/Y_CO2.pdf}
+    \includegraphics[width=2.7in]{\RootPrefix 图表结果/Y_CO2.pdf}
     \parbox{\linewidth}{\centering \footnotesize (a)}
   \end{subfigure}
   \hspace{0.2in}
   \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=2.7in]{图表结果/ghatCO2.pdf}
+    \includegraphics[width=2.7in]{\RootPrefix 图表结果/ghatCO2.pdf}
     \parbox{\linewidth}{\centering \footnotesize (b)}
   \end{subfigure}
   \vspace{-0.1in} % 保持原有的垂直间距
@@ -1214,13 +1216,13 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   % 第二行：两个子图并排
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.7in]{图表结果/normalfit95.pdf}
+    \includegraphics[width=2.7in]{\RootPrefix 图表结果/normalfit95.pdf}
     \parbox{\linewidth}{\centering \footnotesize (c)}
   \end{subfigure}
   \hspace{0.2in}
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.7in]{图表结果/normalfit0.004.pdf}
+    \includegraphics[width=2.7in]{\RootPrefix 图表结果/normalfit0.004.pdf}
     \parbox{\linewidth}{\centering \footnotesize (d)}
   \end{subfigure}
 
@@ -1249,13 +1251,13 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   % 第一行：两个子图并排
   \begin{subfigure}[b]{0.45\textwidth} 
     \centering
-    \includegraphics[width=2.6in]{图表结果/Npoints.pdf}
+    \includegraphics[width=2.6in]{\RootPrefix 图表结果/Npoints.pdf}
     \parbox{\linewidth}{\centering \footnotesize (a)}
   \end{subfigure}
   \hspace{-0.2in}% 保持原有的负间距
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.6in]{图表结果/N1points.pdf}
+    \includegraphics[width=2.6in]{\RootPrefix 图表结果/N1points.pdf}
     \parbox{\linewidth}{\centering \footnotesize (b)}
   \end{subfigure}
 
@@ -1264,13 +1266,13 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   % 第二行：两个子图并排
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.6in]{图表结果/N2points.pdf}
+    \includegraphics[width=2.6in]{\RootPrefix 图表结果/N2points.pdf}
     \parbox{\linewidth}{\centering \footnotesize (c)}
   \end{subfigure}
   \hspace{-0.2in}% 保持与第一行相同的负间距
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.6in]{图表结果/trigulation.pdf}
+    \includegraphics[width=2.6in]{\RootPrefix 图表结果/trigulation.pdf}
     \parbox{\linewidth}{\centering \footnotesize (d)}
   \end{subfigure}
 
@@ -1296,14 +1298,14 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   % 第一行
   \begin{subfigure}[b]{0.48\textwidth} % 稍微放大一点比例，总和不超过 1.0 即可
     \centering
-    \includegraphics[width=\textwidth]{图表结果/heatmap09.pdf}
+    \includegraphics[width=\textwidth]{\RootPrefix 图表结果/heatmap09.pdf}
     \caption{} % 留空或写标题，subcaption 会自动生成 (a)
     \label{fig:sub1}
   \end{subfigure}
   \hfill % 使用 \hfill 自动填充中间空白，比固定 0.2in 更灵活
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{图表结果/heatmap24.pdf}
+    \includegraphics[width=\textwidth]{\RootPrefix 图表结果/heatmap24.pdf}
     \caption{}
     \label{fig:sub2}
   \end{subfigure}
@@ -1313,14 +1315,14 @@ $(500,500)$ & 0.99 & 0.988 & 0.986 & 0.996 & $\ast\ast$ \\
   % 第二行
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{图表结果/blacksea_compar95.pdf}
+    \includegraphics[width=\textwidth]{\RootPrefix 图表结果/blacksea_compar95.pdf}
     \caption{}
     \label{fig:sub3}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{图表结果/blacksea_compar99.pdf}
+    \includegraphics[width=\textwidth]{\RootPrefix 图表结果/blacksea_compar99.pdf}
     \caption{}
     \label{fig:sub4}
   \end{subfigure}
@@ -1756,7 +1758,8 @@ $$\text{Cov} (z,z')=\frac{1}{n'}\sum_{\mathbf{i}'\in \mathcal{I}_{n'}}\left\{\ma
 感谢师兄高伟健、董浩杰在学习和科研方面给予的建议与帮助,  也感谢同门雷善涛、师妹吴宇菲在学习和生活中的关心与陪伴. 与大家共同学习、交流和成长的时光,  是我研究生阶段珍贵的回忆. 同时,  也感谢一路以来在生活中给予我理解、陪伴和鼓励的人. 最后,  感谢我的父母一直以来的理解、支持与鼓励,  他们的关心是我安心学习的重要力量.
 
 %\newpage
-%\includepdfmerge{论文附件/学位论文答辩委员会决议和委员名单.pdf}
+%\includepdfmerge{\RootPrefix 论文附件/学位论文答辩委员会决议和委员名单.pdf}
 \end{document}
+
 
 
